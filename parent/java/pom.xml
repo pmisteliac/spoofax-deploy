@@ -54,6 +54,7 @@
               !org.xml.*,
               org.spoofax.*,
               org.metaborg.*,
+              meta.flowspec.*,
               mb.*,
               org.strategoxt.*,
               org.apache.tools.*,
