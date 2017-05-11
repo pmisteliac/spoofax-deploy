@@ -58,7 +58,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    <!-- Repository for capsule presistent data-structures -->
+    <!-- Repository for capsule persistent data-structures -->
     <repository>
       <id>usethesource</id>
       <url>http://nexus.usethesource.io/content/repositories/public/</url>
@@ -293,7 +293,7 @@
       <dependency>
         <groupId>io.usethesource</groupId>
         <artifactId>capsule</artifactId>
-        <version>0.3.0</version>
+        <version>0.3.1</version>
       </dependency>
 
       <!-- Annotations -->
