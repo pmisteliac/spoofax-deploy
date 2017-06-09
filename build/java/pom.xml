@@ -50,6 +50,7 @@
     <module>${repo.root}/jsglr/org.spoofax.interpreter.library.jsglr</module>
 
     <!-- NaBL -->
+    <module>${repo.root}/nabl/meta.nabl2.terms</module>
     <module>${repo.root}/nabl/meta.nabl2.java</module>
 
     <!-- StrategoXT -->
