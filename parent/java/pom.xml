@@ -50,13 +50,13 @@
               !sun.misc,
               !sun.nio.cs,
               !org.junit,
-              !javax*,
-              !org.xml*,
+              !javax.*,
+              !org.xml.*,
               org.spoofax.*,
               org.metaborg.*,
               mb.*,
               org.strategoxt.*,
-              org.apache.tools.ant,
+              org.apache.tools.*,
               *;provider=metaborg;mandatory:=provider;version=0
             </Import-Package>
             <!-- Include transitive dependencies, so that classes of transitive dependencies are available. -->
