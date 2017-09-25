@@ -380,7 +380,9 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.20.1</version>
           <configuration>
-            <argLine>-Xmx512m -XX:MaxPermSize=256m</argLine>
+            <argLine>-Xss16M -Xmx1G</argLine>
+            <forkCount>3</forkCount>
+            <reuseForks>true</reuseForks>
             <systemProperties>
               <java.awt.headless>true</java.awt.headless>
             </systemProperties>
