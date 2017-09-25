@@ -293,7 +293,7 @@
       <dependency>
         <groupId>io.usethesource</groupId>
         <artifactId>capsule</artifactId>
-        <version>0.5.1</version>
+        <version>0.6.0</version>
       </dependency>
 
       <!-- Annotations -->
