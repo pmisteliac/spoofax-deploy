@@ -20,6 +20,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <java-version>1.8</java-version>
+    
+    <truffle-version>0.26</truffle-version>
   </properties>
 
   <repositories>
@@ -291,6 +293,11 @@
         <groupId>io.usethesource</groupId>
         <artifactId>capsule</artifactId>
         <version>0.6.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.oracle.truffle</groupId>
+        <artifactId>truffle-api</artifactId>
+        <version>${truffle-version}</version>
       </dependency>
 
       <!-- Annotation processors -->
