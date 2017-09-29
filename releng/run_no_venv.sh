@@ -14,5 +14,5 @@ else
   exit 1
 fi
 
-$PYTHON_CMD -m pip install --quiet --user --upgrade --requirement "$DIR/requirements.txt"
+# Run script
 $PYTHON_CMD -u "$DIR/main.py" $*
