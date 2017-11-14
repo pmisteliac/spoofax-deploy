@@ -4,7 +4,7 @@ from eclipsegen.generate import EclipseGenerator, EclipseMultiGenerator
 
 
 class MetaborgEclipseGenerator(object):
-  spoofaxRepo = 'http://download.spoofax.org/update/nightly/'
+  spoofaxRepo = 'http://buildfarm.metaborg.org/job/metaborg/job/spoofax-releng/job/master/lastSuccessfulBuild/artifact/dist/spoofax/eclipse/site/'
   spoofaxRepoLocal = 'spoofax-eclipse/org.metaborg.spoofax.eclipse.updatesite/target/site'
   spoofaxIUs = ['org.metaborg.spoofax.eclipse.feature.feature.group']
   spoofaxLangDevIUs = [
