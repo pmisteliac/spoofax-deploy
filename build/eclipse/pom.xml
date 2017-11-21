@@ -56,6 +56,9 @@
 
     <!-- SPT testrunner plugin -->
     <module>${repo.root}/spt/org.metaborg.spt.testrunner.eclipse</module>
+
+    <!-- SPG sentence generator plugin -->
+    <module>${repo.root}/spg/org.metaborg.spg.sentence.eclipse</module>
   </modules>
 
   <developers>

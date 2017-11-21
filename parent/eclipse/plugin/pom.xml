@@ -141,6 +141,12 @@
       <artifactId>org.metaborg.spt.core</artifactId>
       <version>${metaborg-version}</version>
     </dependency>
+    <!-- SPG -->
+    <dependency>
+      <groupId>org.metaborg</groupId>
+      <artifactId>org.metaborg.spg.sentence</artifactId>
+      <version>${metaborg-version}</version>
+    </dependency>
     <!-- External dependencies -->
     <dependency>
       <groupId>org.metaborg</groupId>
