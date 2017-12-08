@@ -144,7 +144,7 @@
     <!-- SPG -->
     <dependency>
       <groupId>org.metaborg</groupId>
-      <artifactId>org.metaborg.spg.sentence</artifactId>
+      <artifactId>org.metaborg.spg.sentence.sdf</artifactId>
       <version>${metaborg-version}</version>
     </dependency>
     <!-- External dependencies -->
