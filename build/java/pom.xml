@@ -62,6 +62,7 @@
     <module>${repo.root}/spt/org.metaborg.spt.core</module>
 
     <!-- SPG -->
+    <module>${repo.root}/spg/org.metaborg.spg.sentence.shared</module>
     <module>${repo.root}/spg/org.metaborg.spg.sentence.sdf</module>
 
     <!-- Spoofax Maven Plugin -->

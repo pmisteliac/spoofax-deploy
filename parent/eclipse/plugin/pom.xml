@@ -144,6 +144,11 @@
     <!-- SPG -->
     <dependency>
       <groupId>org.metaborg</groupId>
+      <artifactId>org.metaborg.spg.sentence.shared</artifactId>
+      <version>${metaborg-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.metaborg</groupId>
       <artifactId>org.metaborg.spg.sentence.sdf</artifactId>
       <version>${metaborg-version}</version>
     </dependency>
