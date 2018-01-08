@@ -145,9 +145,21 @@ def SetVersions(repo, oldMavenVersion, newMavenVersion, dryRun=False, commit=Fal
   for file in FindFiles(
       os.path.join(baseDir, 'spoofax-intellij', 'org.metaborg.spoofax-common', 'src', 'main', 'resources'), '.txt'):
     ReplaceInFile(file, oldMavenVersion, newMavenVersion)
+  for file in FindFiles(
+      os.path.join(baseDir, 'spoofax-intellij', 'org.metaborg.intellij', 'src', 'main', 'resources'), '.txt'):
+    ReplaceInFile(file, oldMavenVersion, newMavenVersion)
 
   print('Setting versions in IntelliJ updatePlugins.xml files; {} -> {}'.format(oldMavenVersion, newMavenVersion))
   for file in FindFiles(os.path.join(baseDir, 'spoofax-intellij', 'repository'), 'updatePlugins.xml'):
+    ReplaceInFile(file, oldMavenVersion, newMavenVersion)
+
+  # API documentation
+  print('Setting versions in API documentation files; {} -> {}'.format(oldMavenVersion, newMavenVersion))
+  ReplaceInFile(os.path.join(baseDir, 'spoofax', 'apidoc', 'conf.py'), oldMavenVersion, newMavenVersion)
+
+  # Dynsem
+  print('Setting versions in DynSem files; {} -> {}'.format(oldMavenVersion, newMavenVersion))
+  for file in FindFiles(os.path.join(baseDir, 'dynsem', 'dynsem'), '.str'):
     ReplaceInFile(file, oldMavenVersion, newMavenVersion)
 
   # Commit changed files
