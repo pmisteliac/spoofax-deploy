@@ -448,7 +448,7 @@ class MetaborgBuildShared(cli.Application):
     group='Nexus'
   )
   nexusUrl = cli.SwitchAttr(
-    names=['--nexus-url'], argtype=str, default='http://artifacts.metaborg.org',
+    names=['--nexus-url'], argtype=str, default='https://artifacts.metaborg.org',
     requires=['--nexus-deploy'],
     help='URL of the Nexus repository server',
     group='Nexus'
