@@ -13,7 +13,7 @@
   <parent>
     <groupId>org.metaborg</groupId>
     <artifactId>parent</artifactId>
-    <version>2.4.0-SNAPSHOT</version>
+    <version>2.5.0-SNAPSHOT</version>
     <relativePath>../../parent</relativePath>
   </parent>
 
@@ -57,6 +57,9 @@
 
     <!-- SPT testrunner plugin -->
     <module>${repo.root}/spt/org.metaborg.spt.testrunner.eclipse</module>
+
+    <!-- SPG sentence generator plugin -->
+    <module>${repo.root}/spg/org.metaborg.spg.sentence.sdf.eclipse</module>
   </modules>
 
   <developers>
