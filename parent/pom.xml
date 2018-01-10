@@ -166,7 +166,7 @@
       <dependency>
         <groupId>org.yaml</groupId>
         <artifactId>snakeyaml</artifactId>
-        <version>1.19</version>
+        <version>1.18</version>
       </dependency>
 
       <!-- Pluto build and dependencies -->
@@ -506,8 +506,6 @@
           <groupId>org.bsc.maven</groupId>
           <artifactId>maven-processor-plugin</artifactId>
           <version>3.3.2</version>
-          <configuration>
-          </configuration>
           <executions>
             <execution>
               <id>process</id>
