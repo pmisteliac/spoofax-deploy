@@ -110,6 +110,16 @@
     </dependency>
     <dependency>
       <groupId>org.metaborg</groupId>
+      <artifactId>tableinterfaces</artifactId>
+      <version>${metaborg-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.metaborg</groupId>
+      <artifactId>characterclasses</artifactId>
+      <version>${metaborg-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.metaborg</groupId>
       <artifactId>org.spoofax.interpreter.library.jsglr</artifactId>
       <version>${metaborg-version}</version>
     </dependency>
