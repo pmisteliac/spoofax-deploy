@@ -57,18 +57,13 @@ class BuildProperties(object):
 class MetaborgReleng(cli.Application):
   PROGNAME = 'b'
 
-  repoDirectory = '.'
-  repo = None
-  buildProps = None
+  def __init__(self, executable):
+    super().__init__(executable)
+    self.repo = None
+    self.buildProps = None
 
-  @cli.switch(names=["--repo", "-r"], argtype=str)
-  def repo_directory(self, directory):
-    """
-    Sets the spoofax-releng repository to operate on.
-    Defaults to the current directory if not set
-    """
-    self.repoDirectory = directory
-
+  repoDirectory = cli.SwitchAttr(names=['-r', '--repo'], default='.', argtype=str, mandatory=False,
+    help='The spoofax-releng repository to operate on')
   propertyFiles = cli.SwitchAttr(
     names=['-p', '--properties'], argtype=str, list=True,
     help="Load properties from file. If none are set, defaults to 'build.properties'"
@@ -453,7 +448,7 @@ class MetaborgBuildShared(cli.Application):
     group='Nexus'
   )
   nexusUrl = cli.SwitchAttr(
-    names=['--nexus-url'], argtype=str, default='http://artifacts.metaborg.org',
+    names=['--nexus-url'], argtype=str, default='https://artifacts.metaborg.org',
     requires=['--nexus-deploy'],
     help='URL of the Nexus repository server',
     group='Nexus'

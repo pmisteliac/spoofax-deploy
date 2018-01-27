@@ -11,7 +11,7 @@
   <parent>
     <groupId>org.metaborg</groupId>
     <artifactId>parent</artifactId>
-    <version>2.4.0</version>
+    <version>2.5.0-SNAPSHOT</version>
     <relativePath>../../parent</relativePath>
   </parent>
 
@@ -28,6 +28,8 @@
     <module>../../../../jsglr/org.spoofax.jsglr</module>
     <module>../../../../jsglr/org.spoofax.jsglr2</module>
     <module>../../../../sdf/org.metaborg.sdf2table</module>
+    <module>../../../../sdf/org.metaborg.tableinterfaces</module>
+    <module>../../../../sdf/org.metaborg.characterclasses</module>
     <module>../../../../nabl/org.metaborg.meta.nabl2.java</module>
     <module>../../../../strategoxt/strategoxt/stratego-libraries/java-backend</module>
   </modules>
