@@ -25,6 +25,7 @@
     <module>../../../../nabl/org.metaborg.meta.nabl2.shared</module>
     <module>../../../../nabl/org.metaborg.meta.nabl2.lang</module>
     <module>../../../../nabl/org.metaborg.meta.nabl2.runtime</module>
+    <module>../../../../nabl/meta.statix.lang</module>
     <module>../../../../runtime-libraries/org.metaborg.meta.lang.analysis</module>
     <module>../../../../runtime-libraries/org.metaborg.meta.lib.analysis</module>
     <module>../../../../sdf/org.metaborg.meta.lang.sdf</module>
