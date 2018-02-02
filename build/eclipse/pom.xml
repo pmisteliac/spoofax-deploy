@@ -44,6 +44,7 @@
     <module>${repo.root}/nabl/meta.nabl2.lang.eclipse</module>
     <module>${repo.root}/nabl/meta.nabl2.runtime.eclipse</module>
     <module>${repo.root}/nabl/meta.nabl2.integration.dynsem.eclipse</module>
+    <module>${repo.root}/nabl/org.metaborg.meta.statix.lang.eclipse</module>
     <module>${repo.root}/spoofax/meta.lib.spoofax.eclipse</module>
     <module>${repo.root}/runtime-libraries/org.metaborg.meta.lang.analysis.eclipse</module>
     <module>${repo.root}/runtime-libraries/org.metaborg.meta.lib.analysis.eclipse</module>
