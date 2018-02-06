@@ -19,6 +19,5 @@
     <module>../../../../spoofax-shell/org.metaborg.spoofax.shell.console</module>
     <module>../../../../spoofax-shell/org.metaborg.spoofax.shell.core</module>
     <module>../../../../spoofax-shell/org.metaborg.spoofax.shell.eclipse</module>
-    <module>../../../../spoofax-shell/org.metaborg.spoofax.shell.eclipse.externaldeps</module>
   </modules>
 </project>
