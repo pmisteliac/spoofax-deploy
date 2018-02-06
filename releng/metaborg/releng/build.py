@@ -279,10 +279,6 @@ class RelengBuilder(object):
         'Spoofax sunshine JAR',
         _glob_one(os.path.join(basedir, 'spoofax-sunshine/org.metaborg.sunshine2/target/org.metaborg.sunshine2-*.jar'))
       )
-    , FileArtifact(
-        'Spoofax REPL JAR',
-        _glob_one(os.path.join(basedir, 'spoofax-shell/org.metaborg.spoofax.shell.console/target/org.metaborg.spoofax.shell.console-*.jar'))
-      )
     ])
 
   @staticmethod
@@ -346,10 +342,13 @@ class RelengBuilder(object):
   def __build_shell(basedir, eclipseQualifier, maven, mavenDeployer, **_):
     target = 'deploy' if mavenDeployer else 'install'
     cwd = os.path.join(basedir, 'releng', 'build', 'java', 'shell')
-    # Don't skip expensive steps, always clean, because of incompatibilities/bugs with annotation processor.
-    if 'clean' not in maven.targets:
-      maven.targets.insert(0, 'clean')
     maven.run_in_dir(cwd, target, forceContextQualifier=eclipseQualifier)
+    return StepResult([
+      FileArtifact(
+        'Spoofax REPL JAR',
+        _glob_one(os.path.join(basedir, 'spoofax-shell/org.metaborg.spoofax.shell.console/target/org.metaborg.spoofax.shell.console-*.jar'))
+      )
+    ])
 
   @staticmethod
   def __build_eclipse_prereqs(basedir, eclipseQualifier, maven, mavenDeployer, **_):
