@@ -77,7 +77,7 @@
     <module>${repo.root}/spoofax-sunshine/spoofax.core.cmd</module>
 
     <!-- FlowSpec -->
-    <module>${repo.root}/flowspec/meta.flowspec.java</module>
+    <module>${repo.root}/flowspec/flowspec.runtime</module>
   </modules>
 
   <developers>
