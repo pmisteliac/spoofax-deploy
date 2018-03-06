@@ -30,8 +30,8 @@
     <module>../../../../sdf/org.metaborg.sdf2table</module>
     <module>../../../../sdf/org.metaborg.tableinterfaces</module>
     <module>../../../../sdf/org.metaborg.characterclasses</module>
-    <module>../../../../nabl/org.metaborg.meta.nabl2.terms</module>
-    <module>../../../../nabl/org.metaborg.meta.nabl2.java</module>
+    <module>../../../../nabl/nabl2.terms</module>
+    <module>../../../../nabl/nabl2.java</module>
     <module>../../../../strategoxt/strategoxt/stratego-libraries/java-backend</module>
   </modules>
 </project>
