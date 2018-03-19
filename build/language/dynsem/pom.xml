@@ -23,9 +23,7 @@
   </properties>
 
   <modules>
-    <module>${repo.root}/dynsem/dynsem</module>
     <module>${repo.root}/dynsem/org.metaborg.meta.lang.dynsem.interpreter</module>
-    <module>${repo.root}/dynsem/dynsem2coq</module>
   </modules>
 
   <developers>

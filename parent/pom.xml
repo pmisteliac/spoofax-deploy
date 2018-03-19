@@ -20,6 +20,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <java-version>1.8</java-version>
+    
+    <truffle-version>0.26</truffle-version>
   </properties>
 
   <repositories>
@@ -48,6 +50,17 @@
     <repository>
       <id>metaborg-release-repo</id>
       <url>https://artifacts.metaborg.org/content/repositories/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <!-- Repository for capsule persistent data-structures -->
+    <repository>
+      <id>usethesource</id>
+      <url>http://nexus.usethesource.io/content/repositories/public/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -277,14 +290,14 @@
         <version>0.9.2</version>
       </dependency>
       <dependency>
-        <groupId>it.unimi.dsi</groupId>
-        <artifactId>fastutil</artifactId>
-        <version>8.1.0</version>
+        <groupId>io.usethesource</groupId>
+        <artifactId>capsule</artifactId>
+        <version>0.6.1</version>
       </dependency>
       <dependency>
-        <groupId>org.pcollections</groupId>
-        <artifactId>pcollections</artifactId>
-        <version>2.1.2</version>
+        <groupId>com.oracle.truffle</groupId>
+        <artifactId>truffle-api</artifactId>
+        <version>${truffle-version}</version>
       </dependency>
 
       <!-- Annotation processors -->

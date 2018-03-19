@@ -40,10 +40,11 @@
     <module>${repo.root}/esv/org.metaborg.meta.lang.esv.eclipse</module>
     <module>${repo.root}/mb-rep/org.metaborg.meta.lang.aterm.eclipse</module>
     <module>${repo.root}/nabl/org.metaborg.meta.lang.nabl.eclipse</module>
-    <module>${repo.root}/nabl/org.metaborg.meta.nabl2.shared.eclipse</module>
-    <module>${repo.root}/nabl/org.metaborg.meta.nabl2.lang.eclipse</module>
-    <module>${repo.root}/nabl/org.metaborg.meta.nabl2.runtime.eclipse</module>
-    <module>${repo.root}/nabl/org.metaborg.meta.statix.lang.eclipse</module>
+    <module>${repo.root}/nabl/nabl2.shared.eclipse</module>
+    <module>${repo.root}/nabl/nabl2.lang.eclipse</module>
+    <module>${repo.root}/nabl/nabl2.runtime.eclipse</module>
+    <module>${repo.root}/nabl/nabl2.ext.dynsem.eclipse</module>
+    <module>${repo.root}/nabl/statix.lang.eclipse</module>
     <module>${repo.root}/spoofax/meta.lib.spoofax.eclipse</module>
     <module>${repo.root}/runtime-libraries/org.metaborg.meta.lang.analysis.eclipse</module>
     <module>${repo.root}/runtime-libraries/org.metaborg.meta.lib.analysis.eclipse</module>
@@ -54,6 +55,7 @@
     <module>${repo.root}/stratego/org.metaborg.meta.lang.stratego.eclipse</module>
     <module>${repo.root}/ts/org.metaborg.meta.lang.ts.eclipse</module>
     <module>${repo.root}/metaborg-coq/org.metaborg.lang.coq.eclipse</module>
+    <module>${repo.root}/flowspec/flowspec.lang.eclipse</module>
 
     <!-- SPT testrunner plugin -->
     <module>${repo.root}/spt/org.metaborg.spt.testrunner.eclipse</module>

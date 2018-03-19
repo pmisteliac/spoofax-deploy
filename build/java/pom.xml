@@ -54,7 +54,8 @@
     <module>${repo.root}/jsglr/org.spoofax.interpreter.library.jsglr</module>
 
     <!-- NaBL -->
-    <module>${repo.root}/nabl/org.metaborg.meta.nabl2.java</module>
+    <module>${repo.root}/nabl/nabl2.terms</module>
+    <module>${repo.root}/nabl/nabl2.solver</module>
 
     <!-- StrategoXT -->
     <module>${repo.root}/strategoxt/strategoxt/stratego-libraries/java-backend</module>
@@ -74,6 +75,9 @@
     <!-- Spoofax Sunshine -->
     <module>${repo.root}/spoofax-sunshine/org.metaborg.sunshine2</module>
     <module>${repo.root}/spoofax-sunshine/spoofax.core.cmd</module>
+
+    <!-- FlowSpec -->
+    <module>${repo.root}/flowspec/flowspec.runtime</module>
   </modules>
 
   <developers>
