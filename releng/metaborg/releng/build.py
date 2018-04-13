@@ -381,13 +381,13 @@ class RelengBuilder(object):
   @staticmethod
   def __build_intellij(basedir, gradle, **_):
     target = 'install'
-    cwd = os.path.join(basedir, 'spoofax-intellij')
+    cwd = os.path.join(basedir, 'spoofax-intellij', 'org.metaborg.intellij')
     gradle.run_in_dir(cwd, target)
     return StepResult([
       MetaborgFileArtifact(
         'Spoofax for IntelliJ IDEA plugin',
         _glob_one(os.path.join(basedir,
-          'spoofax-intellij/build/distributions/org.metaborg.intellij-*.zip')),
+          'spoofax-intellij/org.metaborg.intellij/build/distributions/org.metaborg.intellij-*.zip')),
         os.path.join('spoofax', 'intellij', 'plugin.zip'),
         NexusMetadata('org.metaborg', 'org.metaborg.intellij.dist'),
         BintrayMetadata('spoofax-intellij-updatesite')
