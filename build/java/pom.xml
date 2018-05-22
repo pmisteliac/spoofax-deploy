@@ -53,9 +53,10 @@
     <module>${repo.root}/jsglr/org.spoofax.jsglr2</module>
     <module>${repo.root}/jsglr/org.spoofax.interpreter.library.jsglr</module>
 
-    <!-- NaBL -->
+    <!-- NaBL & Statix -->
     <module>${repo.root}/nabl/nabl2.terms</module>
     <module>${repo.root}/nabl/nabl2.solver</module>
+    <module>${repo.root}/nabl/statix.solver</module>
 
     <!-- StrategoXT -->
     <module>${repo.root}/strategoxt/strategoxt/stratego-libraries/java-backend</module>
