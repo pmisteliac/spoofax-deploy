@@ -9,7 +9,7 @@ class MetaborgEclipseGenerator(object):
   spoofaxIUs = ['org.metaborg.spoofax.eclipse.feature.feature.group']
   spoofaxLangDevRepos = [
     'http://download.eclipse.com/tools/gef/updates/releases',
-    'http://dadacoalition.org/yedit',
+   #'http://dadacoalition.org/yedit',
     'http://certiv.net/updates'
   ]
   spoofaxLangDevIUs = [
@@ -19,7 +19,7 @@ class MetaborgEclipseGenerator(object):
     'org.eclipse.gef.dot.user.feature.group',
     'org.eclipse.gef.cloudio.user.feature.group',
     # YAML editor
-    'org.dadacoalition.yedit.feature.feature.group',
+   #'org.dadacoalition.yedit.feature.feature.group',
     # Markdown editor
     'net.certiv.fluentmark.feature.feature.group'
   ]
