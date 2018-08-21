@@ -261,7 +261,7 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>17.0</version>
+        <version>20.0</version>
         <!-- Must be 17.0 for IntelliJ IDEA -->
       </dependency>
       <dependency>
