@@ -26,6 +26,7 @@
     <module>../../../../nabl/nabl2.lang.eclipse</module>
     <module>../../../../nabl/nabl2.runtime.eclipse</module>
     <module>../../../../nabl/statix.lang.eclipse</module>
+    <module>../../../../flowspec/flowspec.lang.eclipse</module>
     <module>../../../../runtime-libraries/org.metaborg.meta.lang.analysis.eclipse</module>
     <module>../../../../runtime-libraries/org.metaborg.meta.lib.analysis.eclipse</module>
     <module>../../../../sdf/org.metaborg.meta.lang.sdf.eclipse</module>
