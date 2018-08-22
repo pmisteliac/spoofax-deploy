@@ -28,7 +28,6 @@
     <module>${repo.root}/nabl/nabl2.shared</module>
     <module>${repo.root}/nabl/nabl2.lang</module>
     <module>${repo.root}/nabl/nabl2.runtime</module>
-    <module>${repo.root}/flowspec/flowspec.lang</module>
     <module>${repo.root}/nabl/statix.lang</module>
     <module>${repo.root}/nabl/statix.runtime</module>
     <module>${repo.root}/nabl/org.metaborg.meta.lang.nabl</module>
