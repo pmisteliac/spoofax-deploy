@@ -26,7 +26,6 @@
     <module>../../../../nabl/nabl2.lang</module>
     <module>../../../../nabl/nabl2.runtime</module>
     <module>../../../../nabl/statix.lang</module>
-    <module>../../../../flowspec/flowspec.runtime</module>
     <module>../../../../flowspec/flowspec.lang</module>
     <module>../../../../runtime-libraries/org.metaborg.meta.lang.analysis</module>
     <module>../../../../runtime-libraries/org.metaborg.meta.lib.analysis</module>
