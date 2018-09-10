@@ -7,9 +7,21 @@ class MetaborgEclipseGenerator(object):
   spoofaxRepo = 'http://buildfarm.metaborg.org/job/metaborg/job/spoofax-releng/job/master/lastSuccessfulBuild/artifact/dist/spoofax/eclipse/site/'
   spoofaxRepoLocal = 'spoofax-eclipse/org.metaborg.spoofax.eclipse.updatesite/target/site'
   spoofaxIUs = ['org.metaborg.spoofax.eclipse.feature.feature.group']
+  spoofaxLangDevRepos = [
+    'http://download.eclipse.com/tools/gef/updates/releases',
+   #'http://dadacoalition.org/yedit',
+    'http://certiv.net/updates'
+  ]
   spoofaxLangDevIUs = [
     'org.metaborg.spoofax.eclipse.meta.feature.feature.group',
-    'org.metaborg.spoofax.eclipse.meta.m2e.feature.feature.group'
+    'org.metaborg.spoofax.eclipse.meta.m2e.feature.feature.group',
+    # GraphViz DOT editor
+    'org.eclipse.gef.dot.user.feature.group',
+    'org.eclipse.gef.cloudio.user.feature.group',
+    # YAML editor
+   #'org.dadacoalition.yedit.feature.feature.group',
+    # Markdown editor
+    'net.certiv.fluentmark.feature.feature.group'
   ]
 
   def __init__(self, workingDir, destination, spoofax=True, spoofaxRepo=None, spoofaxRepoLocal=False,
@@ -35,6 +47,7 @@ class MetaborgEclipseGenerator(object):
     repos.add(spoofaxRepo)
     ius.update(MetaborgEclipseGenerator.spoofaxIUs)
     if langDev or lwbDev:
+      repos.update(MetaborgEclipseGenerator.spoofaxLangDevRepos)
       ius.update(MetaborgEclipseGenerator.spoofaxLangDevIUs)
 
     repos.update(moreRepos)

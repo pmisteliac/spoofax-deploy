@@ -5,7 +5,7 @@ with open('requirements.txt') as file:
 
 setup(
   name='metaborg',
-  version='0.1',
+  version='0.1.1',
   description='MetaBorg release engineering scripts',
   url='https://github.com/metaborg/spoofax-releng',
   author='Gabriel Konat',

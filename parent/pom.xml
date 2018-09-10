@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.metaborg</groupId>
   <artifactId>parent</artifactId>
-  <version>2.4.1</version>
+  <version>2.5.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Maven parent POM for all projects</description>
@@ -13,13 +13,15 @@
   <properties>
     <forceContextQualifier>qualifier</forceContextQualifier>
 
-    <metaborg-version>2.4.1</metaborg-version>
+    <metaborg-version>2.5.0-SNAPSHOT</metaborg-version>
     <metaborg-baseline-version>2.3.0</metaborg-baseline-version>
     <metaborg-meta-lang-scope>provided</metaborg-meta-lang-scope>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <java-version>1.8</java-version>
+    
+    <truffle-version>0.26</truffle-version>
   </properties>
 
   <repositories>
@@ -55,6 +57,17 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
+    <!-- Repository for capsule persistent data-structures -->
+    <repository>
+      <id>usethesource</id>
+      <url>http://nexus.usethesource.io/content/repositories/public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
   </repositories>
 
   <dependencyManagement>
@@ -64,14 +77,14 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
-        <version>1.7.10</version>
-        <!-- Must be 1.7.10 for IntelliJ IDEA -->
+        <version>1.7.25</version>
+        <!-- Must be compatible to 1.7.25 for IntelliJ IDEA -->
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-jdk14</artifactId>
-        <version>1.7.10</version>
-        <!-- Must be 1.7.10 for IntelliJ IDEA -->
+        <version>1.7.25</version>
+        <!-- Must be compatible to 1.7.25 for IntelliJ IDEA -->
       </dependency>
       <!-- Implementation -->
       <dependency>
@@ -88,25 +101,25 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
-        <version>1.7.10</version>
-        <!-- Must be 1.7.10 for IntelliJ IDEA -->
+        <version>1.7.25</version>
+        <!-- Must be compatible to 1.7.25 for IntelliJ IDEA -->
       </dependency>
 
       <!-- Dependency injection -->
       <dependency>
         <groupId>com.google.inject</groupId>
         <artifactId>guice</artifactId>
-        <version>4.0</version>
+        <version>4.2.0</version>
       </dependency>
       <dependency>
         <groupId>com.google.inject.extensions</groupId>
         <artifactId>guice-multibindings</artifactId>
-        <version>4.0</version>
+        <version>4.2.0</version>
       </dependency>
       <dependency>
         <groupId>com.google.inject.extensions</groupId>
         <artifactId>guice-assistedinject</artifactId>
-        <version>4.0</version>
+        <version>4.2.0</version>
       </dependency>
       <dependency>
         <groupId>aopalliance</groupId>
@@ -123,7 +136,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-vfs2</artifactId>
-        <version>2.1</version>
+        <version>2.2</version>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
@@ -146,22 +159,22 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>2.9.3</version>
+        <version>2.9.5</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.9.3</version>
+        <version>2.9.5</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.9.3</version>
+        <version>2.9.5</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.dataformat</groupId>
         <artifactId>jackson-dataformat-yaml</artifactId>
-        <version>2.9.3</version>
+        <version>2.9.5</version>
       </dependency>
       <dependency>
         <groupId>org.yaml</groupId>
@@ -213,12 +226,12 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.8</version>
+        <version>1.16.1</version>
       </dependency>
       <dependency>
         <groupId>org.tukaani</groupId>
         <artifactId>xz</artifactId>
-        <version>1.5</version>
+        <version>1.6</version>
       </dependency>
       <dependency>
         <groupId>org.jetbrains</groupId>
@@ -248,13 +261,19 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>17.0</version>
-        <!-- Must be 17.0 for IntelliJ IDEA -->
+        <version>26.0-jre</version>
+        <!-- Must be compatible to 23.6-jre for IntelliJ IDEA -->
+        <exclusions>
+          <exclusion>
+            <groupId>*</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.5</version>
+        <version>2.6</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -277,27 +296,27 @@
         <version>0.9.2</version>
       </dependency>
       <dependency>
-        <groupId>it.unimi.dsi</groupId>
-        <artifactId>fastutil</artifactId>
-        <version>8.1.0</version>
+        <groupId>io.usethesource</groupId>
+        <artifactId>capsule</artifactId>
+        <version>0.6.2</version>
       </dependency>
       <dependency>
-        <groupId>org.pcollections</groupId>
-        <artifactId>pcollections</artifactId>
-        <version>2.1.2</version>
+        <groupId>com.oracle.truffle</groupId>
+        <artifactId>truffle-api</artifactId>
+        <version>${truffle-version}</version>
       </dependency>
 
       <!-- Annotation processors -->
       <dependency>
         <groupId>org.immutables</groupId>
         <artifactId>value</artifactId>
-        <version>2.5.5</version>
+        <version>2.7.1</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.immutables</groupId>
         <artifactId>serial</artifactId>
-        <version>2.5.5</version>
+        <version>2.7.1</version>
         <scope>provided</scope>
       </dependency>
 
@@ -310,7 +329,7 @@
       <dependency>
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>jsr305</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.2</version>
         <scope>provided</scope>
       </dependency>
 
@@ -599,7 +618,7 @@
                   <pluginExecutionFilter>
                     <groupId>org.metaborg</groupId>
                     <artifactId>spoofax-maven-plugin</artifactId>
-                    <versionRange>[2.4.1,)</versionRange>
+                    <versionRange>[2.5.0-SNAPSHOT,)</versionRange>
                     <goals>
                       <!-- Language specification -->
                       <goal>clean</goal>

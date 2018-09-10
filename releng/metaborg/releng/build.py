@@ -236,12 +236,16 @@ class RelengBuilder(object):
     target = 'deploy' if mavenDeployer else 'install'
 
     # Build StrategoXT
+    strategoXtDir = os.path.join(basedir, 'strategoxt', 'strategoxt')
+    properties = {'strategoxt-skip-test': skipTests or not testStratego, 'forceContextQualifier': eclipseQualifier}
     if bootstrapStratego:
-      buildFile = os.path.join('bootstrap-pom.xml')
+      buildFile = os.path.join('buildpoms/bootstrap1/pom.xml')
+      maven.run(strategoXtDir, buildFile, target, **properties)
+      buildFile = os.path.join('buildpoms/bootstrap2/pom.xml')
+      maven.run(strategoXtDir, buildFile, target, **properties)
+      buildFile = os.path.join('bootstrap-end-pom.xml')
     else:
       buildFile = os.path.join('build-pom.xml')
-    properties = {'strategoxt-skip-test': skipTests or not testStratego, 'forceContextQualifier': eclipseQualifier}
-    strategoXtDir = os.path.join(basedir, 'strategoxt', 'strategoxt')
     maven.run(strategoXtDir, buildFile, target, **properties)
 
     # Build StrategoXT parent POM
@@ -381,13 +385,13 @@ class RelengBuilder(object):
   @staticmethod
   def __build_intellij(basedir, gradle, **_):
     target = 'install'
-    cwd = os.path.join(basedir, 'spoofax-intellij', 'org.metaborg.intellij')
+    cwd = os.path.join(basedir, 'spoofax-intellij')
     gradle.run_in_dir(cwd, target)
     return StepResult([
       MetaborgFileArtifact(
         'Spoofax for IntelliJ IDEA plugin',
         _glob_one(os.path.join(basedir,
-          'spoofax-intellij/org.metaborg.intellij/build/distributions/org.metaborg.intellij-*.zip')),
+          'spoofax-intellij/build/distributions/org.metaborg.intellij-*.zip')),
         os.path.join('spoofax', 'intellij', 'plugin.zip'),
         NexusMetadata('org.metaborg', 'org.metaborg.intellij.dist'),
         BintrayMetadata('spoofax-intellij-updatesite')
