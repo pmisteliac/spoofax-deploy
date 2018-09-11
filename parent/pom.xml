@@ -365,9 +365,16 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.7.0</version>
+          <version>3.8.0</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-compiler-eclipse</artifactId>
+              <version>2.8.5</version>
+            </dependency>
+          </dependencies>
           <configuration>
-            <compilerVersion>${java-version}</compilerVersion>
+            <compilerId>eclipse</compilerId>
             <source>${java-version}</source>
             <target>${java-version}</target>
             <debug>true</debug>
@@ -524,22 +531,6 @@
           <groupId>org.bsc.maven</groupId>
           <artifactId>maven-processor-plugin</artifactId>
           <version>3.3.2</version>
-          <executions>
-            <execution>
-              <id>process</id>
-              <goals>
-                <goal>process</goal>
-              </goals>
-              <phase>generate-sources</phase>
-            </execution>
-            <execution>
-              <id>process-test</id>
-              <goals>
-                <goal>process-test</goal>
-              </goals>
-              <phase>generate-test-sources</phase>
-            </execution>
-          </executions>
         </plugin>
 
         <!-- OSGI bundle plugin -->
@@ -554,7 +545,7 @@
           </configuration>
         </plugin>
 
-        <!-- Don't warn about missing m2e mapping for several goals. This plugin's configuration is used to store Eclipse 
+        <!-- Don't warn about missing m2e mapping for several goals. This plugin's configuration is used to store Eclipse
           m2e settings only. It has no influence on the Maven build itself. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
