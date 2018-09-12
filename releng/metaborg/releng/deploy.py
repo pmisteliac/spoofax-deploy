@@ -52,7 +52,7 @@ class MetaborgMavenDeployer(object):
       'wagon.targetId': '"{}"'.format(self.identifier),
       'wagon.target'  : '"{}"'.format(self.url),
     }
-    maven.targets = ['org.codehaus.mojo:wagon-maven-plugin:merge-maven-repos']
+    maven.targets = ['org.codehaus.mojo:wagon-maven-plugin:1.0:merge-maven-repos']
     maven.run(self.rootPath, None)
 
 
