@@ -397,6 +397,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>wagon-maven-plugin</artifactId>
+          <!-- Stick to 1.0. Newer versions give problems (401 return code) when deploying to our artifact server. -->
           <version>1.0</version>
         </plugin>
         <plugin>
@@ -638,6 +639,7 @@
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-http</artifactId>
+        <!-- Stick to 3.0.0. Newer versions give problems (401 return code) when deploying to our artifact server. -->
         <version>3.0.0</version>
       </extension>
     </extensions>
