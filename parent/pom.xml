@@ -533,6 +533,10 @@
           <groupId>org.bsc.maven</groupId>
           <artifactId>maven-processor-plugin</artifactId>
           <version>3.3.3</version>
+          <!-- It is not possible to set the output directory to the usual default
+               directory ${project.build.directory}/generated-{,test-}sources/annotations
+               because generated classes are passed to the compiler twice, and that makes
+               the compiler (at least the Eclipse compiler) fail with an error. -->
           <executions>
             <execution>
               <id>process</id>
