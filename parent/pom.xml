@@ -377,6 +377,7 @@
             <compilerId>eclipse</compilerId>
             <source>${java-version}</source>
             <target>${java-version}</target>
+            <compilerArgument>-proc:none</compilerArgument>
             <debug>true</debug>
           </configuration>
         </plugin>
@@ -532,6 +533,22 @@
           <groupId>org.bsc.maven</groupId>
           <artifactId>maven-processor-plugin</artifactId>
           <version>3.3.3</version>
+          <executions>
+            <execution>
+              <id>process</id>
+              <goals>
+                <goal>process</goal>
+              </goals>
+              <phase>generate-sources</phase>
+            </execution>
+            <execution>
+              <id>process-test</id>
+              <goals>
+                <goal>process-test</goal>
+              </goals>
+              <phase>generate-test-sources</phase>
+            </execution>
+          </executions>
         </plugin>
 
         <!-- OSGI bundle plugin -->
