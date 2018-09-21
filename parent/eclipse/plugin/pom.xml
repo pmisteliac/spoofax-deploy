@@ -276,9 +276,9 @@
 
   <repositories>
     <repository>
-      <id>eclipse-mars</id>
+      <id>eclipse-photon</id>
       <layout>p2</layout>
-      <url>http://eclipse.mirror.triple-it.nl/releases/neon/</url>
+      <url>http://download.eclipse.org/releases/photon</url>
     </repository>
   </repositories>
 
