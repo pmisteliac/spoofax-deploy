@@ -749,4 +749,15 @@
       <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
+
+  <distributionManagement>
+    <repository>
+      <id>metaborg-nexus</id>
+      <url>https://artifacts.metaborg.org/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>metaborg-nexus</id>
+      <url>https://artifacts.metaborg.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
