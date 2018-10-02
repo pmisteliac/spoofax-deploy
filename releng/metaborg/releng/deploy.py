@@ -52,6 +52,7 @@ class MetaborgMavenDeployer(object):
       'wagon.targetId': '"{}"'.format(self.identifier),
       'wagon.target'  : '"{}"'.format(self.url),
     }
+    # Stick to 1.0. Newer versions give problems (401 return code) when deploying to our artifact server.
     maven.targets = ['org.codehaus.mojo:wagon-maven-plugin:1.0:merge-maven-repos']
     maven.run(self.rootPath, None)
 
