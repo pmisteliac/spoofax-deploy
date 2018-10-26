@@ -308,6 +308,11 @@
         <artifactId>truffle-api</artifactId>
         <version>${truffle-version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.graalvm</groupId>
+        <artifactId>graal-sdk</artifactId>
+        <version>${truffle-version}</version>
+      </dependency>
 
       <!-- Annotation processors -->
       <dependency>
