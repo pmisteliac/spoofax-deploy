@@ -24,7 +24,7 @@
 
     <java-version>1.8</java-version>
 
-    <truffle-version>0.26</truffle-version>
+    <truffle-version>1.0.0-rc2</truffle-version>
   </properties>
 
   <repositories>
@@ -306,6 +306,11 @@
       <dependency>
         <groupId>com.oracle.truffle</groupId>
         <artifactId>truffle-api</artifactId>
+        <version>${truffle-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.graalvm</groupId>
+        <artifactId>graal-sdk</artifactId>
         <version>${truffle-version}</version>
       </dependency>
 
