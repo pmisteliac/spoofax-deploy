@@ -23,7 +23,7 @@
   </properties>
 
   <modules>
-
+    <module>${repo.root}/jsglr/org.spoofax.jsglr2.integrationtest</module>
   </modules>
 
   <developers>
