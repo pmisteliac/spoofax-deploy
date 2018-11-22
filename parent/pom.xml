@@ -25,6 +25,7 @@
     <java-version>1.8</java-version>
 
     <truffle-version>1.0.0-rc2</truffle-version>
+    <immutables-version>2.7.3</immutables-version>
   </properties>
 
   <repositories>
@@ -318,13 +319,13 @@
       <dependency>
         <groupId>org.immutables</groupId>
         <artifactId>value</artifactId>
-        <version>2.7.1</version>
+        <version>${immutables-version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.immutables</groupId>
         <artifactId>serial</artifactId>
-        <version>2.7.1</version>
+        <version>${immutables-version}</version>
         <scope>provided</scope>
       </dependency>
 
