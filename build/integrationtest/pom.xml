@@ -24,6 +24,8 @@
 
   <modules>
     <module>${repo.root}/jsglr/org.spoofax.jsglr2.integrationtest</module>
+    <module>${repo.root}/nabl/nabl2.test</module>
+    <module>${repo.root}/nabl/statix.test</module>
   </modules>
 
   <developers>
