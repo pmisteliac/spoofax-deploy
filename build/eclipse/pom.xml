@@ -46,7 +46,6 @@
     <module>${repo.root}/nabl/nabl2.ext.dynsem.eclipse</module>
     <module>${repo.root}/nabl/statix.lang.eclipse</module>
     <module>${repo.root}/nabl/statix.runtime.eclipse</module>
-    <module>${repo.root}/nabl/statix.test.eclipse</module>
     <module>${repo.root}/spoofax/meta.lib.spoofax.eclipse</module>
     <module>${repo.root}/runtime-libraries/org.metaborg.meta.lang.analysis.eclipse</module>
     <module>${repo.root}/runtime-libraries/org.metaborg.meta.lib.analysis.eclipse</module>
