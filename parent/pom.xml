@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.metaborg</groupId>
   <artifactId>parent</artifactId>
-  <version>2.5.1</version>
+  <version>2.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Maven parent POM for all projects</description>
@@ -16,7 +16,7 @@
   <properties>
     <forceContextQualifier>qualifier</forceContextQualifier>
 
-    <metaborg-version>2.5.1</metaborg-version>
+    <metaborg-version>2.6.0-SNAPSHOT</metaborg-version>
     <metaborg-baseline-version>2.3.0</metaborg-baseline-version>
     <metaborg-meta-lang-scope>provided</metaborg-meta-lang-scope>
 
@@ -24,7 +24,8 @@
 
     <java-version>1.8</java-version>
 
-    <truffle-version>0.26</truffle-version>
+    <truffle-version>1.0.0-rc2</truffle-version>
+    <immutables-version>2.7.3</immutables-version>
   </properties>
 
   <repositories>
@@ -308,18 +309,23 @@
         <artifactId>truffle-api</artifactId>
         <version>${truffle-version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.graalvm</groupId>
+        <artifactId>graal-sdk</artifactId>
+        <version>${truffle-version}</version>
+      </dependency>
 
       <!-- Annotation processors -->
       <dependency>
         <groupId>org.immutables</groupId>
         <artifactId>value</artifactId>
-        <version>2.7.1</version>
+        <version>${immutables-version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.immutables</groupId>
         <artifactId>serial</artifactId>
-        <version>2.7.1</version>
+        <version>${immutables-version}</version>
         <scope>provided</scope>
       </dependency>
 
@@ -625,7 +631,7 @@
                   <pluginExecutionFilter>
                     <groupId>org.metaborg</groupId>
                     <artifactId>spoofax-maven-plugin</artifactId>
-                    <versionRange>[2.5.1,)</versionRange>
+                    <versionRange>[2.6.0-SNAPSHOT,)</versionRange>
                     <goals>
                       <!-- Language specification -->
                       <goal>clean</goal>

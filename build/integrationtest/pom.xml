@@ -5,25 +5,29 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>build.language.parent</artifactId>
+  <artifactId>build.integrationtest</artifactId>
   <packaging>pom</packaging>
-  <description>Maven build for language parent POMs</description>
+  <description>Maven build for integration tests</description>
   <url>https://github.com/metaborg/spoofax-deploy</url>
 
   <parent>
     <groupId>org.metaborg</groupId>
     <artifactId>parent</artifactId>
     <version>2.6.0-SNAPSHOT</version>
-    <relativePath>../../../parent</relativePath>
+    <relativePath>../../parent</relativePath>
   </parent>
 
   <properties>
-    <submodule.root>../../../</submodule.root>
+    <submodule.root>../../</submodule.root>
     <repo.root>${submodule.root}/../</repo.root>
   </properties>
 
   <modules>
-    <module>${submodule.root}/parent/language</module>
+    <module>${repo.root}/sdf/org.metaborg.sdf.meta.integrationtest</module>
+    <module>${repo.root}/jsglr/org.spoofax.jsglr2.integrationtest</module>
+    <module>${repo.root}/spt/org.metaborg.spt.integrationtest</module>
+    <module>${repo.root}/nabl/nabl2.test</module>
+    <module>${repo.root}/nabl/statix.test</module>
   </modules>
 
   <developers>

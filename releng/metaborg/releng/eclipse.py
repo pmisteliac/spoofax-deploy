@@ -10,7 +10,7 @@ class MetaborgEclipseGenerator(object):
   spoofaxLangDevRepos = [
     'http://download.eclipse.com/tools/gef/updates/releases',
    #'http://dadacoalition.org/yedit',
-    'http://certiv.net/updates'
+   #'http://certiv.net/updates'
   ]
   spoofaxLangDevIUs = [
     'org.metaborg.spoofax.eclipse.meta.feature.feature.group',
@@ -18,10 +18,10 @@ class MetaborgEclipseGenerator(object):
     # GraphViz DOT editor
     'org.eclipse.gef.dot.user.feature.group',
     'org.eclipse.gef.cloudio.user.feature.group',
-    # YAML editor
+    # YAML editor. Removed because the update site is unreliable.
    #'org.dadacoalition.yedit.feature.feature.group',
-    # Markdown editor
-    'net.certiv.fluentmark.feature.feature.group'
+    # Markdown editor. Removed because the plugin gives spurious errors.
+   #'net.certiv.fluentmark.feature.feature.group'
   ]
 
   def __init__(self, workingDir, destination, spoofax=True, spoofaxRepo=None, spoofaxRepoLocal=False,

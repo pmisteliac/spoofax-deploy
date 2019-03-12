@@ -73,10 +73,13 @@ class RelengBuilder(object):
     spt = add_main_target('spt', stdLangDeps, RelengBuilder.__build_spt)
     allLangDeps = stdLangDeps + [dynsem, spt]
 
-    eclipsePrereqs = add_main_target('eclipse-prereqs', allLangDeps + [], RelengBuilder.__build_eclipse_prereqs)
-    eclipse = add_main_target('eclipse', allLangDeps + [eclipsePrereqs], RelengBuilder.__build_eclipse)
+    integrationTest = add_main_target("integration-test", allLangDeps, RelengBuilder.__build_integration_test)
+    allLangAndIntegrationTestDeps = allLangDeps + [integrationTest]
 
-    intellij = add_main_target('intellij', allLangDeps, RelengBuilder.__build_intellij)
+    eclipsePrereqs = add_main_target('eclipse-prereqs', allLangAndIntegrationTestDeps + [], RelengBuilder.__build_eclipse_prereqs)
+    eclipse = add_main_target('eclipse', allLangAndIntegrationTestDeps + [eclipsePrereqs], RelengBuilder.__build_eclipse)
+
+    intellij = add_main_target('intellij', allLangAndIntegrationTestDeps, RelengBuilder.__build_intellij)
     spt_intellij = add_main_target('spt-intellij', [spt], RelengBuilder.__build_spt_intellij)
 
     builder.add_target('all', mainTargets)
@@ -339,6 +342,15 @@ class RelengBuilder(object):
         _glob_one(os.path.join(basedir, 'spt/org.metaborg.spt.cmd/target/org.metaborg.spt.cmd-*.jar'))
       )
     ])
+
+  @staticmethod
+  def __build_integration_test(basedir, maven, **_):
+    if maven.skipTests:
+      print('Skipping integration tests because skipTests is set to true')
+      return
+    target = 'verify'
+    cwd = os.path.join(basedir, 'releng', 'build', 'integrationtest')
+    maven.run_in_dir(cwd, target)
 
   @staticmethod
   def __build_eclipse_prereqs(basedir, eclipseQualifier, maven, mavenDeployer, **_):
