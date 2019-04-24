@@ -533,7 +533,7 @@ class MetaborgBuildShared(cli.Application):
     if self.jvmOpts:
       builder.mavenOpts = ' '.join(self.jvmOpts)
     else:
-      builder.mavenOpts = '-XX:ThreadStackSize={} -XX:InitialHeapSize={} -XX:MaxHeapSize={}'.format(self.jvmStack, self.jvmMinHeap, self.jvmMaxHeap)
+      builder.mavenOpts = '-Xss{} -Xms{} -Xmx{}'.format(self.jvmStack, self.jvmMinHeap, self.jvmMaxHeap)
 
     if buildProps.get_bool('maven.deploy.enable', self.mavenDeploy):
       mavenDeployIdentifier = buildProps.get('maven.deploy.id', self.mavenDeployIdentifier)
