@@ -89,7 +89,7 @@ class MetaborgRelease(object):
         try:
           # Use merging strategy 3 from http://stackoverflow.com/a/27338013/499240 to make release branch identical to
           # development branch, while keeping correct parent order. Commit is done after restoring .gitmodules file.
-          self.repo.git.merge('--strategy=ours', self.developBranchName)
+          self.repo.git.merge('--no-ff', '--strategy=ours', self.developBranchName)
           self.repo.git.checkout('--detach', self.developBranchName)
           self.repo.git.reset('--soft', self.releaseBranchName)
           self.repo.git.checkout(self.releaseBranchName)
@@ -152,7 +152,7 @@ class MetaborgRelease(object):
             print('Merging branch {} into submodule {}'.format(submoduleDevBranch, submodule.name))
             # Use merging strategy 3 from http://stackoverflow.com/a/27338013/499240 to make release branch identical to
             # development branch, while keeping correct parent order.
-            subrepo.git.merge('--strategy=ours', submoduleDevBranch)
+            subrepo.git.merge('--no-ff', '--strategy=ours', submoduleDevBranch)
             subrepo.git.checkout('--detach', submoduleDevBranch)
             subrepo.git.reset('--soft', submoduleRelBranch)
             subrepo.git.checkout(submoduleRelBranch)
