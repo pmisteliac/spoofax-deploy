@@ -14,9 +14,6 @@ else
   exit 1
 fi
 
-# Ensure that pip is installed and updated
-$PYTHON_CMD -m ensurepip --upgrade --user > /dev/null
-
 # Ensure that virtualenv is installed and updated
 $PYTHON_CMD -m pip install --quiet --user --upgrade virtualenv
 

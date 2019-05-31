@@ -382,13 +382,18 @@ class MetaborgBuildShared(cli.Application):
     group='JVM'
   )
   jvmMinHeap = cli.SwitchAttr(
-    names=['--jvm-min-heap'], default="2G",
+    names=['--jvm-min-heap'], default="512M",
     help="JVM minimum heap size",
     group='JVM'
   )
   jvmMaxHeap = cli.SwitchAttr(
     names=['--jvm-max-heap'], default="2G",
     help="JVM maximum heap size",
+    group='JVM'
+  )
+  jvmOpts = cli.SwitchAttr(
+    names=['--jvm-opt'], argtype=str, list = True, default=None,
+    help="JVM options. Overrides --jvm-stack, --jvm-min-heap, and --jvm-max-heap",
     group='JVM'
   )
 
@@ -525,7 +530,10 @@ class MetaborgBuildShared(cli.Application):
     builder.mavenGlobalSettingsFile = self.mavenGlobalSettings
     builder.mavenLocalRepo = self.mavenLocalRepo
     builder.mavenCleanLocalRepo = self.mavenCleanRepo
-    builder.mavenOpts = '-Xss{} -Xms{} -Xmx{}'.format(self.jvmStack, self.jvmMinHeap, self.jvmMaxHeap)
+    if self.jvmOpts:
+      builder.mavenOpts = ' '.join(self.jvmOpts)
+    else:
+      builder.mavenOpts = '-Xss{} -Xms{} -Xmx{}'.format(self.jvmStack, self.jvmMinHeap, self.jvmMaxHeap)
 
     if buildProps.get_bool('maven.deploy.enable', self.mavenDeploy):
       mavenDeployIdentifier = buildProps.get('maven.deploy.id', self.mavenDeployIdentifier)
