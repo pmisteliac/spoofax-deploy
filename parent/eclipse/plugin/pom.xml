@@ -144,6 +144,11 @@
       <artifactId>stratego.compiler.pack</artifactId>
       <version>${metaborg-version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.metaborg</groupId>
+      <artifactId>stratego.build</artifactId>
+      <version>${metaborg-version}</version>
+    </dependency>
     <!-- Interpretation -->
     <dependency>
       <groupId>org.metaborg</groupId>

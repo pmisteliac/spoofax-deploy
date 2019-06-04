@@ -249,6 +249,28 @@
         <!-- Version 2.2 for build.pluto:pluto -->
       </dependency>
 
+      <!-- Pie build and dependencies -->
+      <dependency>
+        <groupId>org.metaborg</groupId>
+        <artifactId>pie.runtime</artifactId>
+        <version>0.5.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.metaborg</groupId>
+        <artifactId>pie.taskdefs.guice</artifactId>
+        <version>0.5.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.metaborg</groupId>
+        <artifactId>pie.api</artifactId>
+        <version>0.5.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.metaborg</groupId>
+        <artifactId>resource</artifactId>
+        <version>0.3.0</version>
+      </dependency>
+
       <!-- Command-line parsing and running -->
       <dependency>
         <groupId>com.beust</groupId>
