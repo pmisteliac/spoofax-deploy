@@ -387,7 +387,7 @@ class MetaborgBuildShared(cli.Application):
     group='JVM'
   )
   jvmMaxHeap = cli.SwitchAttr(
-    names=['--jvm-max-heap'], default="2G",
+    names=['--jvm-max-heap'], default="4G",
     help="JVM maximum heap size",
     group='JVM'
   )
