@@ -61,6 +61,7 @@
 
     <!-- StrategoXT -->
     <module>${repo.root}/stratego/stratego.compiler.pack/pom.xml</module>
+    <module>${repo.root}/stratego/stratego.build/pom.xml</module>
     <module>${repo.root}/strategoxt/strategoxt/stratego-libraries/java-backend</module>
 
     <!-- SPT -->
