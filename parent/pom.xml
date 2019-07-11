@@ -26,7 +26,7 @@
 
     <truffle-version>1.0.0-rc2</truffle-version>
     <immutables-version>2.7.4</immutables-version>
-    <pie-version>0.5.4</pie-version>
+    <pie-version>0.5.5</pie-version>
   </properties>
 
   <repositories>
