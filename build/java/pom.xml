@@ -48,7 +48,6 @@
     <module>${repo.root}/sdf/org.metaborg.sdf2table</module>
     <module>${repo.root}/sdf/org.metaborg.sdf2parenthesize</module>
     <module>${repo.root}/sdf/org.metaborg.tableinterfaces</module>
-    <module>${repo.root}/sdf/org.metaborg.characterclasses</module>
     <module>${repo.root}/jsglr/org.spoofax.jsglr</module>
     <module>${repo.root}/jsglr/org.spoofax.jsglr2</module>
     <module>${repo.root}/jsglr/org.spoofax.jsglr2.integration</module>
