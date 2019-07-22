@@ -28,8 +28,7 @@
     <module>../../../../jsglr/org.spoofax.jsglr</module>
     <module>../../../../jsglr/org.spoofax.jsglr2</module>
     <module>../../../../sdf/org.metaborg.sdf2table</module>
-    <module>../../../../sdf/org.metaborg.tableinterfaces</module>
-    <module>../../../../sdf/org.metaborg.characterclasses</module>
+    <module>../../../../sdf/org.metaborg.parsetable</module>
     <module>../../../../nabl/nabl2.terms</module>
     <module>../../../../nabl/nabl2.solver</module>
     <module>../../../../flowspec/flowspec.runtime</module>
