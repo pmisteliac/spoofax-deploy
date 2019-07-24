@@ -81,6 +81,12 @@
                   </excludes>
                 </filter>
               </filters>
+              <artifactSet>
+                <excludes>
+                  <exclude>org.metaborg:strategoxt-min-jar</exclude>
+                  <exclude>org.metaborg:strategoxt-jar</exclude>
+                </excludes>
+              </artifactSet>
             </configuration>
           </execution>
         </executions>
