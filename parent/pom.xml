@@ -25,7 +25,7 @@
     <java-version>1.8</java-version>
 
     <truffle-version>1.0.0-rc2</truffle-version>
-    <immutables-version>2.7.4</immutables-version>
+    <immutables-version>2.8.1</immutables-version>
     <pie-version>0.5.5</pie-version>
   </properties>
 
