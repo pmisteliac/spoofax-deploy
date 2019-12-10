@@ -594,8 +594,7 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <!-- Stick to 2.5.4 until newer versions are confirmed to work properly in Eclipse with M2E and Tycho Configurators -->
-          <version>4.2.1</version>
+          <version>3.5.1</version>
           <extensions>true</extensions>
           <configuration>
             <manifestLocation>META-INF</manifestLocation>
