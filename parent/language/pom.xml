@@ -47,8 +47,9 @@
             </goals>
             <configuration>
               <sources>
+                <source>src/main/java</source>
                 <source>src/main/ds</source>
-                <source>src-gen/stratego-java</source>
+                <source>src-gen/java</source>
                 <source>src-gen/ds-java</source>
               </sources>
             </configuration>
