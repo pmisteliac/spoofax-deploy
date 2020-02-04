@@ -60,7 +60,7 @@ class MetaborgReleng(cli.Application):
   PROGNAME = 'b'
 
   minimumMvnVersion = version.parse("3.5.4")
-  forbiddenMvnVersions = [version.parse("3.6.1")]
+  forbiddenMvnVersions = [version.parse("3.6.1"), version.parse("3.6.2")]
 
   def __init__(self, executable):
     super().__init__(executable)
