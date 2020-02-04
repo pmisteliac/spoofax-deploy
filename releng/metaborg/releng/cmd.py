@@ -5,6 +5,8 @@ import jprops
 from eclipsegen.generate import Os, Arch
 from git.repo.base import Repo
 from plumbum import cli
+from packaging import version
+from mavenpy.run import Maven
 
 from metaborg.releng.bootstrap import Bootstrap
 from metaborg.releng.build import RelengBuilder
@@ -57,6 +59,9 @@ class BuildProperties(object):
 class MetaborgReleng(cli.Application):
   PROGNAME = 'b'
 
+  minimumMvnVersion = version.parse("3.5.4")
+  forbiddenMvnVersions = [version.parse("3.6.1")]
+
   def __init__(self, executable):
     super().__init__(executable)
     self.repo = None
@@ -81,6 +86,15 @@ class MetaborgReleng(cli.Application):
     else:
       propertyFiles = ['build.properties']
     self.buildProps = BuildProperties(self.repo.working_tree_dir, propertyFiles)
+
+    mvnVersion = version.parse(Maven.get_version())
+    if (mvnVersion < self.minimumMvnVersion):
+      print(f'Maven version {mvnVersion} is too old. Requires Maven {self.minimumMvnVersion} or newer.')
+      return 1
+    if (mvnVersion in self.forbiddenMvnVersions):
+      print(f'Maven version {mvnVersion} is not supported.')
+      return 1
+
     return 0
 
 
