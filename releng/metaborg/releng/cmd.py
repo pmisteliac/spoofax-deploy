@@ -59,9 +59,6 @@ class BuildProperties(object):
 class MetaborgReleng(cli.Application):
   PROGNAME = 'b'
 
-  minimumMvnVersion = version.parse("3.5.4")
-  forbiddenMvnVersions = [version.parse("3.6.1"), version.parse("3.6.2")]
-
   def __init__(self, executable):
     super().__init__(executable)
     self.repo = None
@@ -86,15 +83,6 @@ class MetaborgReleng(cli.Application):
     else:
       propertyFiles = ['build.properties']
     self.buildProps = BuildProperties(self.repo.working_tree_dir, propertyFiles)
-
-    mvnVersion = version.parse(Maven().get_version())
-    if (mvnVersion < self.minimumMvnVersion):
-      print(f'Maven version {mvnVersion} is too old. Requires Maven {self.minimumMvnVersion} or newer.')
-      return 1
-    if (mvnVersion in self.forbiddenMvnVersions):
-      print(f'Maven version {mvnVersion} is not supported.')
-      return 1
-    print(f'Detected Maven {mvnVersion}...')
 
     return 0
 
@@ -604,6 +592,22 @@ class MetaborgBuildShared(cli.Application):
 
     return builder
 
+  minimumMvnVersion = version.parse("3.5.4")
+  forbiddenMvnVersions = [version.parse("3.6.1"), version.parse("3.6.2")]
+
+  def check_maven_version(self):
+    mvnVersion = version.parse(Maven().get_version())
+    if (mvnVersion):
+      if (mvnVersion < self.minimumMvnVersion):
+        print(f'Maven version {mvnVersion} is too old. Requires Maven {self.minimumMvnVersion} or newer.')
+        return 1
+      if (mvnVersion in self.forbiddenMvnVersions):
+        print(f'Maven version {mvnVersion} is not supported.')
+        return 1
+      print(f'Detected Maven {mvnVersion}...')
+    else:
+      print(f'WARNING: Could not detect Maven version!')
+
 
 @MetaborgReleng.subcommand("build")
 class MetaborgRelengBuild(MetaborgBuildShared):
@@ -658,6 +662,8 @@ class MetaborgRelengBuild(MetaborgBuildShared):
   )
 
   def main(self, *components):
+    self.check_maven_version()
+
     repo = self.parent.repo
     buildProps = self.parent.buildProps
     builder = self.make_builder(repo, buildProps, buildDeps=not self.noDeps)
@@ -738,6 +744,7 @@ class MetaborgRelengRelease(MetaborgBuildShared):
     :param curDevelopVersion: Current Maven version for the development branch
     :return:
     """
+    self.check_maven_version()
 
     repo = self.parent.repo
     repoDir = repo.working_tree_dir
