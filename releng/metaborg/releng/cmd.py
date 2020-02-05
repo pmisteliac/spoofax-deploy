@@ -87,13 +87,14 @@ class MetaborgReleng(cli.Application):
       propertyFiles = ['build.properties']
     self.buildProps = BuildProperties(self.repo.working_tree_dir, propertyFiles)
 
-    mvnVersion = version.parse(Maven.get_version())
+    mvnVersion = version.parse(Maven().get_version())
     if (mvnVersion < self.minimumMvnVersion):
       print(f'Maven version {mvnVersion} is too old. Requires Maven {self.minimumMvnVersion} or newer.')
       return 1
     if (mvnVersion in self.forbiddenMvnVersions):
       print(f'Maven version {mvnVersion} is not supported.')
       return 1
+    print(f'Detected Maven {mvnVersion}...')
 
     return 0
 
