@@ -596,8 +596,9 @@ class MetaborgBuildShared(cli.Application):
   forbiddenMvnVersions = [version.parse("3.6.1"), version.parse("3.6.2")]
 
   def check_maven_version(self):
-    mvnVersion = version.parse(Maven().get_version())
-    if (mvnVersion):
+    mvnVersionString = Maven().get_version()
+    if (mvnVersionString):
+      mvnVersion = version.parse(mvnVersionString)
       if (mvnVersion < self.minimumMvnVersion):
         print(f'Maven version {mvnVersion} is too old. Requires Maven {self.minimumMvnVersion} or newer.')
         return 1
