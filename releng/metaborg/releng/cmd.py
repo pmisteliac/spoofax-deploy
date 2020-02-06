@@ -606,8 +606,10 @@ class MetaborgBuildShared(cli.Application):
         print(f'Maven version {mvnVersion} is not supported.')
         return 1
       print(f'Detected Maven {mvnVersion}...')
+      return 0
     else:
       print(f'WARNING: Could not detect Maven version!')
+      return 0
 
 
 @MetaborgReleng.subcommand("build")
@@ -663,7 +665,8 @@ class MetaborgRelengBuild(MetaborgBuildShared):
   )
 
   def main(self, *components):
-    self.check_maven_version()
+    mvnReturn = self.check_maven_version()
+    if (mvnReturn): return mvnReturn
 
     repo = self.parent.repo
     buildProps = self.parent.buildProps
@@ -745,7 +748,8 @@ class MetaborgRelengRelease(MetaborgBuildShared):
     :param curDevelopVersion: Current Maven version for the development branch
     :return:
     """
-    self.check_maven_version()
+    mvnReturn = self.check_maven_version()
+    if (mvnReturn): return mvnReturn
 
     repo = self.parent.repo
     repoDir = repo.working_tree_dir
