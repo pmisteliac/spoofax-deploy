@@ -481,6 +481,7 @@
             <systemProperties>
               <java.awt.headless>true</java.awt.headless>
             </systemProperties>
+            <excludes><exclude/></excludes><!-- Include nested classes too. -->
           </configuration>
         </plugin>
         <plugin>
