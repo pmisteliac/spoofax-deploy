@@ -24,6 +24,7 @@
 
   <modules>
     <module>${repo.root}/sdf/org.metaborg.sdf.meta.integrationtest</module>
+    <module>${repo.root}/sdf/org.metaborg.meta.lang.template.test</module>
     <module>${repo.root}/jsglr/org.spoofax.jsglr2.integrationtest</module>
     <module>${repo.root}/spt/org.metaborg.spt.integrationtest</module>
     <module>${repo.root}/nabl/nabl2.test</module>
