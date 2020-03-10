@@ -239,12 +239,12 @@ class RelengBuilder(object):
     target = 'deploy' if mavenDeployer else 'install'
 
     # Build StrategoXT parent POM
+    strategoXtDir = os.path.join(basedir, 'strategoxt', 'strategoxt')
     properties = {'strategoxt-skip-build': True, 'strategoxt-skip-assembly': True}
     parentBuildFile = os.path.join('buildpoms', 'pom.xml')
     maven.run(strategoXtDir, parentBuildFile, target, **properties)
 
     # Build StrategoXT
-    strategoXtDir = os.path.join(basedir, 'strategoxt', 'strategoxt')
     properties = {'strategoxt-skip-test': skipTests or not testStratego, 'forceContextQualifier': eclipseQualifier}
     if bootstrapStratego:
       buildFile = os.path.join('buildpoms/bootstrap1/pom.xml')
