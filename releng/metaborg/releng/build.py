@@ -238,13 +238,8 @@ class RelengBuilder(object):
   def __build_strategoxt(basedir, bootstrapStratego, testStratego, skipTests, eclipseQualifier, maven, mavenDeployer, **_):
     target = 'deploy' if mavenDeployer else 'install'
 
-    # Build StrategoXT parent POM
-    strategoXtDir = os.path.join(basedir, 'strategoxt', 'strategoxt')
-    properties = {'strategoxt-skip-build': True, 'strategoxt-skip-assembly': True}
-    parentBuildFile = os.path.join('buildpoms', 'pom.xml')
-    maven.run(strategoXtDir, parentBuildFile, target, **properties)
-
     # Build StrategoXT
+    strategoXtDir = os.path.join(basedir, 'strategoxt', 'strategoxt')
     properties = {'strategoxt-skip-test': skipTests or not testStratego, 'forceContextQualifier': eclipseQualifier}
     if bootstrapStratego:
       buildFile = os.path.join('buildpoms/bootstrap1/pom.xml')
@@ -255,6 +250,11 @@ class RelengBuilder(object):
     else:
       buildFile = os.path.join('build-pom.xml')
     maven.run(strategoXtDir, buildFile, target, **properties)
+
+    # Build StrategoXT parent POM
+    properties = {'strategoxt-skip-build': True, 'strategoxt-skip-assembly': True}
+    parentBuildFile = os.path.join('buildpoms', 'pom.xml')
+    maven.run(strategoXtDir, parentBuildFile, target, **properties)
 
     if bootstrapStratego:
       distribDir = os.path.join(strategoXtDir, 'buildpoms', 'bootstrap3', 'target')
