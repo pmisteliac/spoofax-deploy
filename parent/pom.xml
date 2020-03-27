@@ -33,7 +33,7 @@
     <!-- Pluto and SugarJ repositories for Pluto and dependencies -->
     <repository>
       <id>pluto-build</id>
-      <url>https://raw.githubusercontent.com/pluto-build/pluto-build.github.io/master/mvnrepository/</url>
+      <url>https://artifacts.metaborg.org/content/repositories/pluto/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -43,7 +43,7 @@
     </repository>
     <repository>
       <id>sugar-lang</id>
-      <url>https://sugar-lang.github.io/mvnrepository/</url>
+      <url>https://artifacts.metaborg.org/content/repositories/sugarj/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -65,7 +65,7 @@
     <!-- Repository for capsule persistent data-structures -->
     <repository>
       <id>usethesource</id>
-      <url>http://nexus.usethesource.io/content/repositories/public/</url>
+      <url>https://artifacts.metaborg.org/content/repositories/usethesource/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
