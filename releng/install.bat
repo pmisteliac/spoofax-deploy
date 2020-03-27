@@ -1,0 +1,1 @@
+py -m pip install --quiet --user --upgrade --requirement "%~dp0requirements.txt"
