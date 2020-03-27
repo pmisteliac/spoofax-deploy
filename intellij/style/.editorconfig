@@ -1,0 +1,93 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 120
+tab_width = 4
+ij_continuation_indent_size = 4
+ij_formatter_off_tag = @formatter:off
+ij_formatter_on_tag = @formatter:on
+ij_formatter_tags_enabled = true
+
+[*.java]
+# Wrap annotations only if line is too long.
+ij_java_class_annotation_wrap = normal
+ij_java_method_annotation_wrap = normal
+ij_java_field_annotation_wrap = normal
+# Do not wrap annotations on variables and parameters.
+ij_java_variable_annotation_wrap = off
+ij_java_parameter_annotation_wrap = off
+# Do not wrap parameters inside annotations.
+ij_java_annotation_parameter_wrap = off
+# No spaces before/within parentheses.
+ij_java_space_before_catch_parentheses = false
+ij_java_space_before_for_parentheses = false
+ij_java_space_before_if_parentheses = false
+ij_java_space_before_method_call_parentheses = false
+ij_java_space_before_method_parentheses = false
+ij_java_space_before_switch_parentheses = false
+ij_java_space_before_synchronized_parentheses = false
+ij_java_space_before_try_parentheses = false
+ij_java_spaces_within_cast_parentheses = false
+ij_java_spaces_within_catch_parentheses = false
+ij_java_spaces_within_for_parentheses = false
+ij_java_spaces_within_if_parentheses = false
+ij_java_spaces_within_method_call_parentheses = false
+ij_java_spaces_within_method_parentheses = false
+ij_java_spaces_within_parentheses = false
+ij_java_spaces_within_switch_parentheses = false
+ij_java_spaces_within_synchronized_parentheses = false
+ij_java_spaces_within_try_parentheses = false
+ij_java_spaces_within_while_parentheses = false
+ij_java_space_before_while_parentheses = false
+ij_java_space_within_empty_method_call_parentheses = false
+ij_java_space_within_empty_method_parentheses = false
+ij_java_spaces_within_annotation_parentheses = false
+# No space after cast.
+ij_java_space_after_type_cast = false
+# Do not wrap singe-line javadoc comments.
+ij_java_doc_do_not_wrap_if_one_line = true
+# Don't use star imports.
+ij_java_class_count_to_use_import_on_demand = 999
+ij_java_names_count_to_use_import_on_demand = 999
+
+[*.json]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+
+[{*.gant, *.groovy, *.gradle, *.gdsl, *.gy, Jenkinsfile}]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+
+[{*.jhm, *.xslt, *.xul, *.tagx, *.rng, *.xsl, *.xsd, *.jspx, *.ant, *.tld, *.fxml, *.wsdl, *.jrxml, *.xml, *.jnlp, *.pom}]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+
+[{*.kt, *.kts}]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+# Don't use star imports.
+ij_kotlin_name_count_to_use_star_import = 999
+ij_kotlin_name_count_to_use_star_import_for_members = 999
+
+[{*.yml, *.yaml}]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+
+[{*.md, *.adoc}]
+indent_size = 2
+tab_width = 2
+ij_continuation_indent_size = 2
+
+[**/partial/*.mustache]
+insert_final_newline = false
