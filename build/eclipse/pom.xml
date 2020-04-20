@@ -51,6 +51,7 @@
     <module>${repo.root}/runtime-libraries/org.metaborg.meta.lib.analysis.eclipse</module>
     <module>${repo.root}/sdf/org.metaborg.meta.lang.sdf.eclipse</module>
     <module>${repo.root}/sdf/org.metaborg.meta.lang.template.eclipse</module>
+    <module>${repo.root}/sdf/sdf3.ext.statix.eclipse</module>
     <module>${repo.root}/spt/org.metaborg.meta.lang.spt.eclipse</module>
     <module>${repo.root}/spt/org.metaborg.meta.lang.spt.interactive.eclipse</module>
     <module>${repo.root}/stratego/org.metaborg.meta.lang.stratego.eclipse</module>
