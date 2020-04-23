@@ -600,15 +600,15 @@ class MetaborgBuildShared(cli.Application):
     if (mvnVersionString):
       mvnVersion = version.parse(mvnVersionString)
       if (mvnVersion < self.minimumMvnVersion):
-        print(f'Maven version {mvnVersion} is too old. Requires Maven {self.minimumMvnVersion} or newer.')
+        print('Maven version {} is too old. Requires Maven {} or newer.'.format(mvnVersion, self.minimumMvnVersion))
         return 1
       if (mvnVersion in self.forbiddenMvnVersions):
-        print(f'Maven version {mvnVersion} is not supported.')
+        print('Maven version {} is not supported.'.format(mvnVersion))
         return 1
-      print(f'Detected Maven {mvnVersion}...')
+      print('Detected Maven {}...'.format(mvnVersion))
       return 0
     else:
-      print(f'WARNING: Could not detect Maven version!')
+      print('WARNING: Could not detect Maven version!')
       return 0
 
 
