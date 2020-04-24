@@ -5,6 +5,8 @@ import jprops
 from eclipsegen.generate import Os, Arch
 from git.repo.base import Repo
 from plumbum import cli
+from packaging import version
+from mavenpy.run import Maven
 
 from metaborg.releng.bootstrap import Bootstrap
 from metaborg.releng.build import RelengBuilder
@@ -81,6 +83,7 @@ class MetaborgReleng(cli.Application):
     else:
       propertyFiles = ['build.properties']
     self.buildProps = BuildProperties(self.repo.working_tree_dir, propertyFiles)
+
     return 0
 
 
@@ -589,6 +592,25 @@ class MetaborgBuildShared(cli.Application):
 
     return builder
 
+  minimumMvnVersion = version.parse("3.5.4")
+  forbiddenMvnVersions = [version.parse("3.6.1"), version.parse("3.6.2")]
+
+  def check_maven_version(self):
+    mvnVersionString = Maven().get_version()
+    if (mvnVersionString):
+      mvnVersion = version.parse(mvnVersionString)
+      if (mvnVersion < self.minimumMvnVersion):
+        print('Maven version {} is too old. Requires Maven {} or newer.'.format(mvnVersion, self.minimumMvnVersion))
+        return 1
+      if (mvnVersion in self.forbiddenMvnVersions):
+        print('Maven version {} is not supported.'.format(mvnVersion))
+        return 1
+      print('Detected Maven {}...'.format(mvnVersion))
+      return 0
+    else:
+      print('WARNING: Could not detect Maven version!')
+      return 0
+
 
 @MetaborgReleng.subcommand("build")
 class MetaborgRelengBuild(MetaborgBuildShared):
@@ -643,6 +665,9 @@ class MetaborgRelengBuild(MetaborgBuildShared):
   )
 
   def main(self, *components):
+    mvnReturn = self.check_maven_version()
+    if (mvnReturn): return mvnReturn
+
     repo = self.parent.repo
     buildProps = self.parent.buildProps
     builder = self.make_builder(repo, buildProps, buildDeps=not self.noDeps)
@@ -723,6 +748,8 @@ class MetaborgRelengRelease(MetaborgBuildShared):
     :param curDevelopVersion: Current Maven version for the development branch
     :return:
     """
+    mvnReturn = self.check_maven_version()
+    if (mvnReturn): return mvnReturn
 
     repo = self.parent.repo
     repoDir = repo.working_tree_dir

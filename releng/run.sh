@@ -15,7 +15,7 @@ else
 fi
 
 # Ensure that virtualenv is installed and updated
-$PYTHON_CMD -m pip install --quiet --user --upgrade virtualenv
+$PYTHON_CMD -m pip install --quiet --user --upgrade --requirement "$DIR/requirements_virtualenv.txt"
 
 # Create and activate virtualenv
 VENV="$DIR/.virtualenv"

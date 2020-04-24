@@ -8,7 +8,7 @@ class MetaborgEclipseGenerator(object):
   spoofaxRepoLocal = 'spoofax-eclipse/org.metaborg.spoofax.eclipse.updatesite/target/site'
   spoofaxIUs = ['org.metaborg.spoofax.eclipse.feature.feature.group']
   spoofaxLangDevRepos = [
-    'http://download.eclipse.com/tools/gef/updates/releases',
+    'http://download.eclipse.org/tools/gef/updates/releases',
    #'http://dadacoalition.org/yedit',
    #'http://certiv.net/updates'
   ]

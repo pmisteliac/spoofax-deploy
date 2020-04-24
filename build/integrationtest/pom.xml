@@ -13,7 +13,7 @@
   <parent>
     <groupId>org.metaborg</groupId>
     <artifactId>parent</artifactId>
-    <version>2.5.7</version>
+    <version>2.6.0-SNAPSHOT</version>
     <relativePath>../../parent</relativePath>
   </parent>
 
@@ -23,11 +23,15 @@
   </properties>
 
   <modules>
+    <module>${repo.root}/mb-rep/org.metaborg.meta.lang.aterm.test</module>
     <module>${repo.root}/sdf/org.metaborg.sdf.meta.integrationtest</module>
+    <module>${repo.root}/sdf/org.metaborg.meta.lang.template.test</module>
     <module>${repo.root}/jsglr/org.spoofax.jsglr2.integrationtest</module>
     <module>${repo.root}/spt/org.metaborg.spt.integrationtest</module>
     <module>${repo.root}/nabl/nabl2.test</module>
     <module>${repo.root}/nabl/statix.test</module>
+    <module>${repo.root}/nabl/statix.cli</module>
+    <module>${repo.root}/nabl/statix.integrationtest</module>
   </modules>
 
   <developers>

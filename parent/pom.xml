@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.metaborg</groupId>
   <artifactId>parent</artifactId>
-  <version>2.5.7</version>
+  <version>2.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Maven parent POM for all projects</description>
@@ -16,7 +16,7 @@
   <properties>
     <forceContextQualifier>qualifier</forceContextQualifier>
 
-    <metaborg-version>2.5.7</metaborg-version>
+    <metaborg-version>2.6.0-SNAPSHOT</metaborg-version>
     <metaborg-baseline-version>2.3.0</metaborg-baseline-version>
     <metaborg-meta-lang-scope>provided</metaborg-meta-lang-scope>
 
@@ -25,14 +25,15 @@
     <java-version>1.8</java-version>
 
     <truffle-version>1.0.0-rc2</truffle-version>
-    <immutables-version>2.7.4</immutables-version>
+    <immutables-version>2.8.1</immutables-version>
+    <pie-version>0.6.1</pie-version>
   </properties>
 
   <repositories>
     <!-- Pluto and SugarJ repositories for Pluto and dependencies -->
     <repository>
       <id>pluto-build</id>
-      <url>https://raw.githubusercontent.com/pluto-build/pluto-build.github.io/master/mvnrepository/</url>
+      <url>https://artifacts.metaborg.org/content/repositories/pluto/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -42,7 +43,7 @@
     </repository>
     <repository>
       <id>sugar-lang</id>
-      <url>https://sugar-lang.github.io/mvnrepository/</url>
+      <url>https://artifacts.metaborg.org/content/repositories/sugarj/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -64,7 +65,7 @@
     <!-- Repository for capsule persistent data-structures -->
     <repository>
       <id>usethesource</id>
-      <url>http://nexus.usethesource.io/content/repositories/public/</url>
+      <url>https://artifacts.metaborg.org/content/repositories/usethesource/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -190,7 +191,7 @@
       <dependency>
         <groupId>build.pluto</groupId>
         <artifactId>pluto</artifactId>
-        <version>1.11.0</version>
+        <version>1.11.3</version>
       </dependency>
       <dependency>
         <groupId>build.pluto</groupId>
@@ -253,22 +254,22 @@
       <dependency>
         <groupId>org.metaborg</groupId>
         <artifactId>pie.runtime</artifactId>
-        <version>0.5.3</version>
+        <version>${pie-version}</version>
       </dependency>
       <dependency>
         <groupId>org.metaborg</groupId>
         <artifactId>pie.taskdefs.guice</artifactId>
-        <version>0.5.3</version>
+        <version>${pie-version}</version>
       </dependency>
       <dependency>
         <groupId>org.metaborg</groupId>
         <artifactId>pie.api</artifactId>
-        <version>0.5.3</version>
+        <version>${pie-version}</version>
       </dependency>
       <dependency>
         <groupId>org.metaborg</groupId>
         <artifactId>resource</artifactId>
-        <version>0.3.0</version>
+        <version>0.4.0</version>
       </dependency>
 
       <!-- Command-line parsing and running -->
@@ -374,7 +375,19 @@
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.12</version>
+        <version>4.13</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.6.0</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>5.6.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -406,6 +419,13 @@
               <artifactId>plexus-compiler-eclipse</artifactId>
               <version>2.8.5</version>
             </dependency>
+            <!-- The plexus-compiler-eclipse 2.8.5 depends on ecj 3.13, which does not work with
+                 JDK10+ versions. The explicit dependency forces the use of a newer ecj version. -->
+            <dependency>
+              <groupId>org.eclipse.jdt</groupId>
+              <artifactId>ecj</artifactId>
+              <version>3.20.0</version>
+          </dependency>
           </dependencies>
           <configuration>
             <compilerId>eclipse</compilerId>
@@ -453,7 +473,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.0</version>
+          <version>2.22.2</version>
           <configuration>
             <argLine>-Xss16M -Xmx1G</argLine>
             <forkCount>3</forkCount>
@@ -461,6 +481,7 @@
             <systemProperties>
               <java.awt.headless>true</java.awt.headless>
             </systemProperties>
+            <excludes><exclude/></excludes><!-- Include nested classes too. -->
           </configuration>
         </plugin>
         <plugin>
@@ -535,7 +556,7 @@
             <execution>
               <id>attach-sources</id>
               <goals>
-                <goal>jar</goal>
+                <goal>jar-no-fork</goal>
               </goals>
             </execution>
           </executions>
@@ -659,7 +680,7 @@
                   <pluginExecutionFilter>
                     <groupId>org.metaborg</groupId>
                     <artifactId>spoofax-maven-plugin</artifactId>
-                    <versionRange>[2.5.7,)</versionRange>
+                    <versionRange>[2.6.0-SNAPSHOT,)</versionRange>
                     <goals>
                       <!-- Language specification -->
                       <goal>clean</goal>
