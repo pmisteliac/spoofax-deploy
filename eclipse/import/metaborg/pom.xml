@@ -17,7 +17,6 @@
 
   <modules>
     <module>../../../../mb-rep/org.spoofax.terms</module>
-    <module>../../../../mb-rep/org.spoofax.terms.typesmart</module>
     <module>../../../../mb-rep/org.spoofax.interpreter.library.index</module>
     <module>../../../../mb-exec/org.metaborg.util</module>
     <module>../../../../mb-exec/org.spoofax.interpreter.core</module>
