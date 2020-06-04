@@ -15,13 +15,13 @@ class MetaborgEclipseGenerator(object):
   spoofaxLangDevIUs = [
     'org.metaborg.spoofax.eclipse.meta.feature.feature.group',
     'org.metaborg.spoofax.eclipse.meta.m2e.feature.feature.group',
-    # GraphViz DOT editor
-    'org.eclipse.gef.dot.user.feature.group',
-    'org.eclipse.gef.cloudio.user.feature.group',
+    # GraphViz DOT editor. Removed because the update site is unreliable.
+    #'org.eclipse.gef.dot.user.feature.group',
+    #'org.eclipse.gef.cloudio.user.feature.group',
     # YAML editor. Removed because the update site is unreliable.
-   #'org.dadacoalition.yedit.feature.feature.group',
+    #'org.dadacoalition.yedit.feature.feature.group',
     # Markdown editor. Removed because the plugin gives spurious errors.
-   #'net.certiv.fluentmark.feature.feature.group'
+    #'net.certiv.fluentmark.feature.feature.group'
   ]
 
   def __init__(self, workingDir, destination, spoofax=True, spoofaxRepo=None, spoofaxRepoLocal=False,
