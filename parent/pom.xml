@@ -27,7 +27,7 @@
     <truffle-version>1.0.0-rc2</truffle-version>
     <immutables-version>2.8.1</immutables-version>
     <pie-version>0.6.1</pie-version>
-    <viatra-version>2.3.2</viatra-version>
+    <viatra-version>2.4.0</viatra-version>
     <eclipse-collections-version>10.2.0</eclipse-collections-version>
   </properties>
 
