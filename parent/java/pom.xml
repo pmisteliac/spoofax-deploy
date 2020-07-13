@@ -46,7 +46,7 @@
             <Export-Package>*</Export-Package>
             <!-- Don't declare dependency on Java library packages. -->
             <!-- Allow dependencies to Metaborg artifacts without a provider. -->
-            <!-- Use Metaborg provider for rest of the packages, these are external dependencies that should not 
+            <!-- Use Metaborg provider for rest of the packages, these are external dependencies that should not
               conflict with other Eclipse plugins. -->
             <Import-Package>
               !sun.misc,
@@ -54,8 +54,9 @@
               !org.junit,
               !org.junit.jupiter,
               !org.junit.vintage,
-              !javax.*,
               !org.xml.*,
+              javax.inject,
+              !javax.*,
               org.spoofax.*,
               org.metaborg.*,
               mb.*,
@@ -73,7 +74,7 @@
             <_nodefaultversion>true</_nodefaultversion>
           </instructions>
         </configuration>
-        <!-- Hook manifest generation into the process-classes phase, because this is not automatically done for 
+        <!-- Hook manifest generation into the process-classes phase, because this is not automatically done for
           projects with 'jar' packaging. -->
         <executions>
           <execution>
