@@ -139,6 +139,11 @@
       <artifactId>stratego.build</artifactId>
       <version>${metaborg-version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.metaborg</groupId>
+      <artifactId>stratego.build.spoofax2</artifactId>
+      <version>${metaborg-version}</version>
+    </dependency>
     <!-- Interpretation -->
     <dependency>
       <groupId>org.metaborg</groupId>
@@ -278,7 +283,7 @@
     <repository>
       <id>eclipse-photon</id>
       <layout>p2</layout>
-      <url>http://download.eclipse.org/releases/photon</url>
+      <url>https://artifacts.metaborg.org/content/groups/eclipse-photon/</url>
     </repository>
   </repositories>
 
