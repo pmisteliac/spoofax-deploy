@@ -37,6 +37,10 @@ fun String.includeProject(id: String, dir: String = id, path: String = "../../$t
   includeProject("stratego.compiler.pack")
 }
 
+"spt".run {
+  includeProject("org.metaborg.meta.lang.spt")
+}
+
 "nabl".run {
   includeProject("nabl2.terms")
   includeProject("nabl2.lang")
