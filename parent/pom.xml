@@ -280,7 +280,7 @@
       <dependency>
         <groupId>org.metaborg</groupId>
         <artifactId>resource</artifactId>
-        <version>0.7.3</version>
+        <version>0.8.0</version>
       </dependency>
 
       <!-- Command-line parsing and running -->
