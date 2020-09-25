@@ -12,7 +12,7 @@ class MetaborgEclipseGenerator(object):
     'org.metaborg.spoofax.eclipse.meta.m2e.feature.feature.group',
     'de.jcup.yamleditor.feature.group',
   ]
-  eclipsePhotonRepo = 'https://artifacts.metaborg.org/content/groups/eclipse-photon/'
+  eclipsePhotonRepo = 'https://artifacts.metaborg.org/content/groups/eclipse-2020-06/'
 
   def __init__(self, workingDir, destination, spoofax=True, spoofaxRepo=None, spoofaxRepoLocal=False,
       langDev=True, lwbDev=True, moreRepos=None, moreIUs=None):
