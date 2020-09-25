@@ -991,10 +991,6 @@ class MetaborgRelengGenMvnSettings(cli.Application):
     default=MetaborgMavenSettingsGeneratorGenerator.defaultSnapshots, help='Maven repository for MetaBorg snapshots')
   noMetaborgSnapshots = cli.Flag(names=['-S', '--no-metaborg-snapshots'], default=False,
     help="Don't add a Maven repository for MetaBorg snapshots")
-  spoofaxUpdateSite = cli.SwitchAttr(names=['-u', '--spoofax-update-site'], argtype=str, mandatory=False,
-    default=MetaborgMavenSettingsGeneratorGenerator.defaultUpdateSite, help='Eclipse update site for Spoofax plugins')
-  noSpoofaxUpdateSite = cli.Flag(names=['-U', '--no-spoofax-update-site'], default=False,
-    help="Don't add an Eclipse update site for Spoofax plugins")
   centralMirror = cli.SwitchAttr(names=['-m', '--central-mirror'], argtype=str, mandatory=False,
     default=MetaborgMavenSettingsGeneratorGenerator.defaultMirror, help='Maven repository for mirroring Maven central')
   confirmPrompt = cli.Flag(names=['-y', '--yes'], default=False,
@@ -1013,15 +1009,9 @@ class MetaborgRelengGenMvnSettings(cli.Application):
     else:
       metaborgSnapshots = self.metaborgSnapshots
 
-    if self.noSpoofaxUpdateSite:
-      spoofaxUpdateSite = None
-    else:
-      spoofaxUpdateSite = self.spoofaxUpdateSite
-
     generator = MetaborgMavenSettingsGeneratorGenerator(location=self.destination,
       metaborgReleases=self.metaborgReleases,
-      metaborgSnapshots=metaborgSnapshots, spoofaxUpdateSite=spoofaxUpdateSite,
-      centralMirror=self.centralMirror)
+      metaborgSnapshots=metaborgSnapshots, centralMirror=self.centralMirror)
     generator.generate()
 
     return 0
