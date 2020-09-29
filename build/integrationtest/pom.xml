@@ -29,6 +29,7 @@
     <module>${repo.root}/jsglr/org.spoofax.jsglr2.integrationtest</module>
     <module>${repo.root}/spt/org.metaborg.spt.integrationtest</module>
     <module>${repo.root}/nabl/nabl2.test</module>
+    <module>${repo.root}/nabl/nabl2.test.envs</module>
     <module>${repo.root}/nabl/statix.test</module>
     <module>${repo.root}/nabl/statix.cli</module>
     <module>${repo.root}/nabl/statix.integrationtest</module>
