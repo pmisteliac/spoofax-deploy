@@ -81,5 +81,6 @@ if(repoProperties.isTrueOrNull("spoofax2.update")) {
     includeProject("org.metaborg.spoofax.core")
     includeProject("org.metaborg.meta.core")
     includeProject("org.metaborg.spoofax.meta.core")
+    includeProject("meta.lib.spoofax")
   }
 }
