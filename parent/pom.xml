@@ -27,8 +27,6 @@
     <truffle-version>1.0.0-rc2</truffle-version>
     <immutables-version>2.8.1</immutables-version>
     <pie-version>0.12.4</pie-version>
-    <viatra-version>2.4.0</viatra-version>
-    <eclipse-collections-version>10.2.0</eclipse-collections-version>
   </properties>
 
   <repositories>
@@ -68,17 +66,6 @@
     <repository>
       <id>usethesource</id>
       <url>https://artifacts.metaborg.org/content/repositories/usethesource/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <!-- Repository for viatra -->
-    <repository>
-      <id>eclipse-releases</id>
-      <url>https://repo.eclipse.org/content/groups/releases/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -365,26 +352,6 @@
         <groupId>org.graalvm</groupId>
         <artifactId>graal-sdk</artifactId>
         <version>${truffle-version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.viatra</groupId>
-        <artifactId>org.eclipse.viatra.query.runtime.matchers</artifactId>
-        <version>${viatra-version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.viatra</groupId>
-        <artifactId>org.eclipse.viatra.query.runtime.base.itc</artifactId>
-        <version>${viatra-version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.collections</groupId>
-        <artifactId>eclipse-collections-api</artifactId>
-        <version>${eclipse-collections-version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.collections</groupId>
-        <artifactId>eclipse-collections</artifactId>
-        <version>${eclipse-collections-version}</version>
       </dependency>
 
       <!-- Annotation processors -->
