@@ -84,3 +84,9 @@ if(repoProperties.isTrueOrNull("spoofax2.update")) {
     includeProject("meta.lib.spoofax")
   }
 }
+
+if(repoProperties.isTrueOrNull("spoofax.gradle.update")) {
+  "spoofax.gradle".run {
+    includeProject("spoofax.gradle", "plugin")
+  }
+}
