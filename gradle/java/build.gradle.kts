@@ -13,27 +13,12 @@ subprojects {
   }
 }
 
-// Get spoofax2Version explicitly via gradle.properties, as project properties are not passed to included builds.
-val spoofax2Version = run {
-  val path = "../../../gradle.properties"
-  val file = rootDir.resolve(path)
-  if(file.exists() && file.isFile) {
-    val properties = java.util.Properties()
-    file.inputStream().buffered().use { inputStream ->
-      properties.load(inputStream)
-    }
-    properties.getProperty("spoofax2Version")
-      ?: throw GradleException("Cannot determine Spoofax 2 version: Gradle project property 'spoofax2Version' was not set in '$path'")
-  } else {
-    throw GradleException("Cannot determine Spoofax 2 version: '$path' file of devenv was also not found")
-  }
-}
+val spoofax2Version = System.getProperty("spoofax2Version")
 
 allprojects {
   // Override version from gitonium, as Spoofax Core uses a different versioning scheme. Except for 'spoofax.gradle',
   // since that is released separately.
   if(name != "spoofax.gradle") {
-    // Needs to be kept in sync with spoofax2Version of Spoofax 3 and the Spoofax 2 Gradle plugin.
     version = spoofax2Version
   }
 }
