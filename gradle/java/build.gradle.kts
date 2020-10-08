@@ -3,11 +3,8 @@ plugins {
   id("org.metaborg.gitonium") version "0.1.3"
 
   // Set versions for plugins to use, only applying them in subprojects (apply false here).
-  id("org.metaborg.gradle.config.kotlin-gradle-plugin") version "0.3.21" apply false
-  id("org.metaborg.spoofax.gradle.langspec") version "0.4.4" apply false
-  id("de.set.ecj") version "1.4.1" apply false
-  kotlin("jvm") version "1.3.41" apply false // Use 1.3.41 to keep in sync with embedded Kotlin version of Gradle 5.6.4.
-  id("org.gradle.kotlin.kotlin-dsl") version "1.2.9" apply false // Use 1.2.9 to keep in sync with embedded Kotlin version of Gradle 5.6.4.
+  id("org.metaborg.gradle.config.java-library") version "0.3.21" apply false
+  id("org.metaborg.gradle.config.junit-testing") version "0.3.21" apply false
 }
 
 subprojects {
@@ -18,15 +15,17 @@ subprojects {
 
 // Get spoofax2Version explicitly via gradle.properties, as project properties are not passed to included builds.
 val spoofax2Version = run {
-  val propertiesFile = rootDir.resolve("../../../gradle.properties")
-  if(propertiesFile.exists() && propertiesFile.isFile) {
+  val path = "../../../gradle.properties"
+  val file = rootDir.resolve(path)
+  if(file.exists() && file.isFile) {
     val properties = java.util.Properties()
-    propertiesFile.inputStream().buffered().use { inputStream ->
+    file.inputStream().buffered().use { inputStream ->
       properties.load(inputStream)
     }
-    properties.getProperty("spoofax2Version")!!
+    properties.getProperty("spoofax2Version")
+      ?: throw GradleException("Cannot determine Spoofax 2 version: Gradle project property 'spoofax2Version' was not set in '$path'")
   } else {
-    null!!
+    throw GradleException("Cannot determine Spoofax 2 version: '$path' file of devenv was also not found")
   }
 }
 

@@ -47,6 +47,12 @@ if(repoProperties.isTrueOrNull("stratego.update")) {
   }
 }
 
+if(repoProperties.isTrueOrNull("esv.update")) {
+  "esv".run {
+    includeProject("org.metaborg.meta.lang.esv")
+  }
+}
+
 if(repoProperties.isTrueOrNull("nabl.update")) {
   "nabl".run {
     includeProject("nabl2.lang")

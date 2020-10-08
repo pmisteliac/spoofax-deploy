@@ -16,15 +16,17 @@ subprojects {
 
 // Get spoofax2Version explicitly via gradle.properties, as project properties are not passed to included builds.
 val spoofax2Version = run {
-  val propertiesFile = rootDir.resolve("../../../gradle.properties")
-  if(propertiesFile.exists() && propertiesFile.isFile) {
+  val path = "../../../gradle.properties"
+  val file = rootDir.resolve(path)
+  if(file.exists() && file.isFile) {
     val properties = java.util.Properties()
-    propertiesFile.inputStream().buffered().use { inputStream ->
+    file.inputStream().buffered().use { inputStream ->
       properties.load(inputStream)
     }
-    properties.getProperty("spoofax2Version")!!
+    properties.getProperty("spoofax2Version")
+      ?: throw GradleException("Cannot determine Spoofax 2 version: Gradle project property 'spoofax2Version' was not set in '$path'")
   } else {
-    null!!
+    throw GradleException("Cannot determine Spoofax 2 version: '$path' file of devenv was also not found")
   }
 }
 
