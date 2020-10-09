@@ -4,7 +4,7 @@ plugins {
 
   // Set versions for plugins to use, only applying them in subprojects (apply false here).
   id("org.metaborg.gradle.config.kotlin-gradle-plugin") version "0.3.21" apply false
-  id("org.metaborg.spoofax.gradle.langspec") version "0.4.5" apply false
+  id("org.metaborg.spoofax.gradle.langspec") version "0.4.6" apply false
   id("de.set.ecj") version "1.4.1" apply false
 }
 
