@@ -45,7 +45,6 @@ fi
 # (Since venv is made by idiots, temporarily disable unbound variable checks when activating virtual environment)
 set +o nounset
 source "$VENV/bin/activate"
-set -o nounset
 
 # Install requirements
 $PYTHON_CMD -m pip install --quiet --requirement "$DIR/requirements.txt"
@@ -55,3 +54,4 @@ $PYTHON_CMD -u "$DIR/main.py" $*
 
 # Deactivate virtualenv
 deactivate
+set -o nounset
