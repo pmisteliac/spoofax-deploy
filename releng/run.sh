@@ -17,7 +17,7 @@ fi
 VENV="$DIR/.venv"
 
 # Create virtual environment, if it does not exist yet
-if [[ ! -d "$VENV" ]]
+if [ ! -f "$VENV/bin/activate" ]
 then
     # On Ubuntu/Debian, Python3 does not automatically come with ensurepip installed
     # https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847/+index?comments=all
