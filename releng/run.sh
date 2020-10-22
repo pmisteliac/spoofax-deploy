@@ -22,7 +22,7 @@ then
     # On Ubuntu/Debian, Python3 does not automatically come with ensurepip installed
     # https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847/+index?comments=all
     # Note that the issue is marked as "fixed", but it's still broken.
-    if ! $PYTHON_CMD -c 'help("modules")' 2> /dev/null | grep ensurepip
+    if ! $PYTHON_CMD -c 'help("modules")' 2> /dev/null | grep ensurepip > /dev/null
     then
         echo "Could not find the 'ensurepip' module, which is required for creating a"
         echo "Python virtual environment. There are a few options to fix this, for example:"
@@ -42,7 +42,10 @@ then
 fi
 
 # Activate virtual environment
+# (Since venv is made by idiots, temporarily disable unbound variable checks when activating virtual environment)
+set +o nounset
 source "$VENV/bin/activate"
+set -o nounset
 
 # Install requirements
 $PYTHON_CMD -m pip install --quiet --requirement "$DIR/requirements.txt"
