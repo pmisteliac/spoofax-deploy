@@ -1,14 +1,20 @@
-plugins {
-  id("org.metaborg.gradle.config.root-project") version "0.3.21"
-  id("org.metaborg.gitonium") version "0.1.3"
+// Apply plugin the old way for compatibility with both Gradle 5.6.4 and 6+.
+buildscript {
+  repositories {
+    maven("https://artifacts.metaborg.org/content/groups/public/")
+  }
+  dependencies {
+    classpath("org.metaborg:gradle.config:0.4.2")
+  }
+}
+apply(plugin = "org.metaborg.gradle.config.root-project")
 
-  // Set versions for plugins to use, only applying them in subprojects (apply false here).
-  id("org.metaborg.gradle.config.java-library") version "0.3.21" apply false
-  id("org.metaborg.gradle.config.junit-testing") version "0.3.21" apply false
+plugins {
+  id("org.metaborg.gitonium") version "0.1.4"
 }
 
 subprojects {
-  metaborg {
+  configure<mb.gradle.config.MetaborgExtension> {
     configureSubProject()
   }
 }

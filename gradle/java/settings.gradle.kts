@@ -11,31 +11,26 @@ if(org.gradle.util.VersionNumber.parse(gradle.gradleVersion).major < 6) {
 }
 
 
-val repoProperties = run {
-  val propertiesFile = rootDir.resolve("../../../repo.properties")
-  if(propertiesFile.exists() && propertiesFile.isFile) {
-    val properties = java.util.Properties()
-    propertiesFile.inputStream().buffered().use { inputStream ->
-      properties.load(inputStream)
-    }
-    properties
-  } else {
-    null
+buildscript {
+  repositories {
+    maven("https://artifacts.metaborg.org/content/groups/public/")
+  }
+  dependencies {
+    classpath("org.metaborg:gradle.config:0.4.2")
   }
 }
 
-fun java.util.Properties?.isTrueOrNull(key: String) = this == null || this[key] == "true"
+val devenvRootRelativePath = "../../../"
+val repositoryConfigurations = mb.gradle.config.devenv.RepositoryConfigurations.fromRootDirectory(rootDir.resolve(devenvRootRelativePath))
 
-fun String.includeProject(id: String, dir: String = id, path: String = "../../../$this/$dir") {
+fun String.includeProject(id: String, dir: String = id, path: String = "$devenvRootRelativePath/$this/$dir") {
   val projectDir = file(path)
-  if(projectDir.exists()) {
-    include(id)
-    project(":$id").projectDir = projectDir
-  }
+  include(id)
+  project(":$id").projectDir = projectDir
 }
 
 
-if(repoProperties.isTrueOrNull("jsglr.update")) {
+if(repositoryConfigurations.isUpdated("jsglr")) {
   "jsglr".run {
     includeProject("org.spoofax.jsglr")
     includeProject("org.spoofax.jsglr2")
@@ -43,14 +38,14 @@ if(repoProperties.isTrueOrNull("jsglr.update")) {
   }
 }
 
-if(repoProperties.isTrueOrNull("sdf.update")) {
+if(repositoryConfigurations.isUpdated("sdf")) {
   "sdf".run {
     includeProject("org.metaborg.parsetable")
     includeProject("sdf2table", "org.metaborg.sdf2table")
   }
 }
 
-if(repoProperties.isTrueOrNull("stratego.update")) {
+if(repositoryConfigurations.isUpdated("stratego")) {
   "stratego".run {
     includeProject("stratego.build")
     includeProject("stratego.build.spoofax2")
@@ -58,7 +53,7 @@ if(repoProperties.isTrueOrNull("stratego.update")) {
   }
 }
 
-if(repoProperties.isTrueOrNull("nabl.update")) {
+if(repositoryConfigurations.isUpdated("nabl")) {
   "nabl".run {
     includeProject("nabl2.terms")
 
@@ -67,7 +62,7 @@ if(repoProperties.isTrueOrNull("nabl.update")) {
   }
 }
 
-if(repoProperties.isTrueOrNull("spoofax2.update")) {
+if(repositoryConfigurations.isUpdated("spoofax2")) {
   "spoofax2".run {
     includeProject("org.metaborg.core")
     includeProject("org.metaborg.core.test")
@@ -77,7 +72,7 @@ if(repoProperties.isTrueOrNull("spoofax2.update")) {
   }
 }
 
-if(repoProperties.isTrueOrNull("spoofax.gradle.update")) {
+if(repositoryConfigurations.isUpdated("spoofax.gradle")) {
   "spoofax.gradle".run {
     includeProject("spoofax.gradle", "plugin")
   }

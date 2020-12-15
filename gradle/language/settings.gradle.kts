@@ -11,49 +11,44 @@ if(org.gradle.util.VersionNumber.parse(gradle.gradleVersion).major < 6) {
 }
 
 
-val repoProperties = run {
-  val propertiesFile = rootDir.resolve("../../../repo.properties")
-  if(propertiesFile.exists() && propertiesFile.isFile) {
-    val properties = java.util.Properties()
-    propertiesFile.inputStream().buffered().use { inputStream ->
-      properties.load(inputStream)
-    }
-    properties
-  } else {
-    null
+buildscript {
+  repositories {
+    maven("https://artifacts.metaborg.org/content/groups/public/")
+  }
+  dependencies {
+    classpath("org.metaborg:gradle.config:0.4.2")
   }
 }
 
-fun java.util.Properties?.isTrueOrNull(key: String) = this == null || this[key] == "true"
+val devenvRootRelativePath = "../../../"
+val repositoryConfigurations = mb.gradle.config.devenv.RepositoryConfigurations.fromRootDirectory(rootDir.resolve(devenvRootRelativePath))
 
-fun String.includeProject(id: String, dir: String = id, path: String = "../../../$this/$dir") {
+fun String.includeProject(id: String, dir: String = id, path: String = "$devenvRootRelativePath/$this/$dir") {
   val projectDir = file(path)
-  if(projectDir.exists()) {
-    include(id)
-    project(":$id").projectDir = projectDir
-  }
+  include(id)
+  project(":$id").projectDir = projectDir
 }
 
 
-if(repoProperties.isTrueOrNull("sdf.update")) {
+if(repositoryConfigurations.isUpdated("sdf")) {
   "sdf".run {
     includeProject("org.metaborg.meta.lang.template")
   }
 }
 
-if(repoProperties.isTrueOrNull("stratego.update")) {
+if(repositoryConfigurations.isUpdated("stratego")) {
   "stratego".run {
     includeProject("org.metaborg.meta.lang.stratego")
   }
 }
 
-if(repoProperties.isTrueOrNull("esv.update")) {
+if(repositoryConfigurations.isUpdated("esv")) {
   "esv".run {
     includeProject("org.metaborg.meta.lang.esv")
   }
 }
 
-if(repoProperties.isTrueOrNull("nabl.update")) {
+if(repositoryConfigurations.isUpdated("nabl")) {
   "nabl".run {
     includeProject("nabl2.lang")
     includeProject("nabl2.runtime")
@@ -64,14 +59,8 @@ if(repoProperties.isTrueOrNull("nabl.update")) {
   }
 }
 
-if(repoProperties.isTrueOrNull("spoofax2.update")) {
+if(repositoryConfigurations.isUpdated("spoofax2")) {
   "spoofax2".run {
     includeProject("meta.lib.spoofax")
-  }
-}
-
-if(repoProperties.isTrueOrNull("spoofax.gradle.update")) {
-  "spoofax.gradle".run {
-
   }
 }
