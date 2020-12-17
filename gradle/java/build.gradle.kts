@@ -13,18 +13,20 @@ plugins {
   id("org.metaborg.gitonium") version "0.1.4"
 }
 
+gitonium {
+  tagPattern = java.util.regex.Pattern.compile("""devenv-release/(.+)""")
+}
+
 subprojects {
   configure<mb.gradle.config.MetaborgExtension> {
     configureSubProject()
   }
 }
 
-val spoofax2Version = System.getProperty("spoofax2Version")
-
+val spoofax2Version: String = System.getProperty("spoofax2Version")
+val spoofax2BaselineVersion: String = System.getProperty("spoofax2BaselineVersion")
 allprojects {
-  // Override version from gitonium, as Spoofax Core uses a different versioning scheme. Except for 'spoofax.gradle',
-  // since that is released separately.
-  if(name != "spoofax.gradle") {
-    version = spoofax2Version
-  }
+  group = "org.metaborg.devenv"
+  ext["spoofax2Version"] = spoofax2Version
+  ext["spoofax2BaselineVersion"] = spoofax2BaselineVersion
 }

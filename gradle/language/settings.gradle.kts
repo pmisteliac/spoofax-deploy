@@ -50,9 +50,9 @@ if(repositoryConfigurations.isUpdated("esv")) {
 
 if(repositoryConfigurations.isUpdated("nabl")) {
   "nabl".run {
-    includeProject("nabl2.lang")
-    includeProject("nabl2.runtime")
-    includeProject("nabl2.shared")
+    includeProject("org.metaborg.meta.nabl2.lang", "nabl2.lang")
+    includeProject("org.metaborg.meta.nabl2.runtime", "nabl2.runtime")
+    includeProject("org.metaborg.meta.nabl2.shared", "nabl2.shared")
 
     includeProject("statix.lang")
     includeProject("statix.runtime")
