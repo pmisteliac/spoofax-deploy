@@ -55,6 +55,7 @@
     <!-- NaBL & Statix -->
     <module>${repo.root}/nabl/nabl2.terms</module>
     <module>${repo.root}/nabl/nabl2.solver</module>
+    <module>${repo.root}/nabl/renaming.java</module>
     <module>${repo.root}/nabl/statix.solver</module>
     <module>${repo.root}/nabl/statix.generator</module>
 

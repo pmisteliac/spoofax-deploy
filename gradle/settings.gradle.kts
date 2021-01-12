@@ -47,6 +47,8 @@ fun String.includeProject(id: String, dir: String = id, path: String = "../../$t
   includeProject("statix.generator")
   includeProject("statix.lang")
   includeProject("statix.runtime")
+  
+  includeProject("renaming.java")
 }
 
 "spoofax2".run {
