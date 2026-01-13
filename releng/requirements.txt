@@ -12,3 +12,4 @@ eclipsegen~=0.4.5
 bintraypy~=0.1
 nexuspy~=0.1
 packaging~=19.0
+urllib3>=2.6.3 # not directly required, pinned by Snyk to avoid a vulnerability
